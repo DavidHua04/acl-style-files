@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex acl_latex"] 1772431837.61665 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1772432896.97611 0
+["bibtex acl_latex"] 1772431837.61665 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1772432979.1452 0
   "./acl_natbib.bst" 1772427544 47126 3d1af46d62cc9172ef6e42b56c1cd613 ""
   "./custom.bib" 1772430914 6360 dc0ca80c929945307230793fb91ae85e ""
-  "acl_latex.aux" 1772432896 11216 94d5c0a8990d8f5c217d2870bdcb316d "pdflatex"
+  "acl_latex.aux" 1772432978 11216 94d5c0a8990d8f5c217d2870bdcb316d "pdflatex"
   (generated)
   "acl_latex.bbl"
   "acl_latex.blg"
   (rewritten before read)
-["pdflatex"] 1772432895.43191 "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1772432896.9767 0
+["pdflatex"] 1772432977.6274 "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1772432979.14562 0
   "C:/Users/David/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772431587 96176 40a8022d15c5925d7081b1ad66e03248 ""
   "C:/Users/David/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1772429523 13331443 7d33d8bff672ca0bc72f2dab4c0c4740 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -126,11 +126,11 @@
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "acl.sty" 1772427544 11927 e2c027f483aa40e577ed34264c8b0655 ""
-  "acl_latex.aux" 1772432896 11216 94d5c0a8990d8f5c217d2870bdcb316d "pdflatex"
+  "acl_latex.aux" 1772432978 11216 94d5c0a8990d8f5c217d2870bdcb316d "pdflatex"
   "acl_latex.bbl" 1772431837 5745 cdd167fd53cf31bdfad9356264d0f022 "bibtex acl_latex"
-  "acl_latex.out" 1772432896 1047 040d32d2df190d14505e294c5fa110df "pdflatex"
-  "acl_latex.tex" 1772432894 26982 c33dfe66d8e323a3516b1883d57483e7 ""
-  "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" 1772432894 26982 c33dfe66d8e323a3516b1883d57483e7 ""
+  "acl_latex.out" 1772432978 1047 040d32d2df190d14505e294c5fa110df "pdflatex"
+  "acl_latex.tex" 1772432976 26981 d272947279d78cc87a2dc2a22d5a4d3c ""
+  "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" 1772432976 26981 d272947279d78cc87a2dc2a22d5a4d3c ""
   "img/figure_1.png" 1772430476 15788 a2be71ab6d75691b0399ce3f35a8bac1 ""
   (generated)
   "acl_latex.aux"
