@@ -1,8 +1,8 @@
 \documentclass[11pt]{article}
 
-% Change "review" to "final" to generate the final (sometimes called camera-ready) version.
+% Change "review" to "final" to generate the final (camera-ready) version.
 % Change to "preprint" to generate a non-anonymous version with page numbers.
-\usepackage[review]{acl}
+\usepackage[final]{acl}
 
 % Standard package includes
 \usepackage{times}
@@ -10,9 +10,6 @@
 
 % For proper rendering and hyphenation of words containing Latin characters (including in bib files)
 \usepackage[T1]{fontenc}
-% For Vietnamese characters
-% \usepackage[T5]{fontenc}
-% See https://www.latex-project.org/help/documentation/encguide.pdf for other character sets
 
 % This assumes your files are encoded as UTF8
 \usepackage[utf8]{inputenc}
@@ -27,351 +24,486 @@
 % the typewriter font.
 \usepackage{inconsolata}
 
-%Including images in your LaTeX document requires adding
-%additional package(s)
+% For including images
 \usepackage{graphicx}
 
-% If the title and author information does not fit in the area allocated, uncomment the following
-%
-%\setlength\titlebox{<dim>}
-%
-% and set <dim> to something 5cm or larger.
+% For better table formatting
+\usepackage{booktabs}
 
-\title{Instructions for *ACL Proceedings}
+% For math commands (\text, \frac, etc.)
+\usepackage{amsmath}
 
-% Author information can be set in various styles:
-% For several authors from the same institution:
-% \author{Author 1 \and ... \and Author n \\
-%         Address line \\ ... \\ Address line}
-% if the names do not fit well on one line use
-%         Author 1 \\ {\bf Author 2} \\ ... \\ {\bf Author n} \\
-% For authors from different institutions:
-% \author{Author 1 \\ Address line \\  ... \\ Address line
-%         \And  ... \And
-%         Author n \\ Address line \\ ... \\ Address line}
-% To start a separate ``row'' of authors use \AND, as in
-% \author{Author 1 \\ Address line \\  ... \\ Address line
-%         \AND
-%         Author 2 \\ Address line \\ ... \\ Address line \And
-%         Author 3 \\ Address line \\ ... \\ Address line}
+\title{Designing an Identifier System to Enhance ASCII Art Recognition in LLMs}
 
-\author{First Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  \texttt{email@domain} \\\And
-  Second Author \\
-  Affiliation / Address line 1 \\
-  Affiliation / Address line 2 \\
-  Affiliation / Address line 3 \\
-  \texttt{email@domain} \\}
-
-%\author{
-%  \textbf{First Author\textsuperscript{1}},
-%  \textbf{Second Author\textsuperscript{1,2}},
-%  \textbf{Third T. Author\textsuperscript{1}},
-%  \textbf{Fourth Author\textsuperscript{1}},
-%\\
-%  \textbf{Fifth Author\textsuperscript{1,2}},
-%  \textbf{Sixth Author\textsuperscript{1}},
-%  \textbf{Seventh Author\textsuperscript{1}},
-%  \textbf{Eighth Author \textsuperscript{1,2,3,4}},
-%\\
-%  \textbf{Ninth Author\textsuperscript{1}},
-%  \textbf{Tenth Author\textsuperscript{1}},
-%  \textbf{Eleventh E. Author\textsuperscript{1,2,3,4,5}},
-%  \textbf{Twelfth Author\textsuperscript{1}},
-%\\
-%  \textbf{Thirteenth Author\textsuperscript{3}},
-%  \textbf{Fourteenth F. Author\textsuperscript{2,4}},
-%  \textbf{Fifteenth Author\textsuperscript{1}},
-%  \textbf{Sixteenth Author\textsuperscript{1}},
-%\\
-%  \textbf{Seventeenth S. Author\textsuperscript{4,5}},
-%  \textbf{Eighteenth Author\textsuperscript{3,4}},
-%  \textbf{Nineteenth N. Author\textsuperscript{2,5}},
-%  \textbf{Twentieth Author\textsuperscript{1}}
-%\\
-%\\
-%  \textsuperscript{1}Affiliation 1,
-%  \textsuperscript{2}Affiliation 2,
-%  \textsuperscript{3}Affiliation 3,
-%  \textsuperscript{4}Affiliation 4,
-%  \textsuperscript{5}Affiliation 5
-%\\
-%  \small{
-%    \textbf{Correspondence:} \href{mailto:email@domain}{email@domain}
-%  }
-%}
+\author{David Hua \\
+  Department of Computer Science \\
+  The University of British Columbia \\
+  \texttt{[email@domain]}}
 
 \begin{document}
 \maketitle
+
 \begin{abstract}
-This document is a supplement to the general instructions for *ACL authors. It contains instructions for using the \LaTeX{} style files for ACL conferences.
-The document itself conforms to its own specifications, and is therefore an example of what your manuscript should look like.
-These instructions should be used both for papers submitted for review and for final versions of accepted papers.
+ASCII art presents a unique challenge for Large Language Models (LLMs) due to its nature of
+encoding visual patterns using textual characters. This can allow inappropriate or harmful content
+to bypass moderation systems. To address this vulnerability, a generalizable identifier system that
+operates at inference time to improve ASCII art recognition in LLMs is designed. The system converts
+ASCII art into an image and passes it to a Vision-Language Model (VLM) for recognition. By doing so,
+the approach improves recognition of ASCII-encoded content without requiring any retraining of LLMs.
+This approach is evaluated using a custom dataset of ASCII art examples collected online, comparing
+baseline and enhanced model responses based on feature coverage, hallucination rates, and improper
+detection rate. Results show that this lightweight VLM-based pipeline significantly improves ASCII
+interpretation and detection of harmful or offensive elements. This system offers a practical step
+toward safer AI applications, especially in content moderation and platform safety.
 \end{abstract}
+
+\noindent\textbf{Keywords:} large language models, visual language models, ASCII art, content
+moderation, offensive detection
+
+\smallskip
+\noindent\textit{Warning: this paper contains examples of toxic language used for research purposes.}
 
 \section{Introduction}
 
-These instructions are for authors submitting papers to *ACL conferences using \LaTeX. They are not self-contained. All authors must follow the general instructions for *ACL proceedings,\footnote{\url{http://acl-org.github.io/ACLPUB/formatting.html}} and this document contains additional instructions for the \LaTeX{} style files.
+Large Language Models (LLMs) such as ChatGPT \citep{openai2025chatgpt}, Claude
+\citep{anthropic2025claude}, and Gemini \citep{google2025gemini} have demonstrated impressive
+capabilities in processing text-based information, but they often struggle with interpreting
+non-standard formats such as ASCII art: ``the art of creating images using text characters as their
+constituent elements'' \citep{ogrady2008automatic}. This limitation can result in serious
+consequences when harmful messages are conveyed in the form of ASCII art. In online media, ASCII art
+can be used to bypass content moderation systems, leading to harassment, hate speech, rumour, or
+cyberbullying that cannot be easily detected by current text-only LLM filters.
 
-The templates include the \LaTeX{} source of this document (\texttt{acl\_latex.tex}),
-the \LaTeX{} style file used to format it (\texttt{acl.sty}),
-an ACL bibliography style (\texttt{acl\_natbib.bst}),
-an example bibliography (\texttt{custom.bib}),
-and the bibliography for the ACL Anthology (\texttt{anthology.bib}).
+This study was motivated by the growing concern that current LLMs fail to grasp the visual nature of
+ASCII art and may misinterpret or overlook offensive content embedded in it. By enhancing LLMs'
+ability to recognize ASCII art, this research aims to support safer online communication and
+strengthen the AI tools available for digital content moderation.
 
-\section{Engines}
+To address this gap, a generalizable identifier system is built to convert ASCII art into an image
+and pass it to a Vision-Language Model (VLM) for interpretation. This pipeline operates at inference
+time and does not require any retraining of the LLMs, making it practical and low-cost.
 
-To produce a PDF file, pdf\LaTeX{} is strongly recommended (over original \LaTeX{} plus dvips+ps2pdf or dvipdf).
-The style file \texttt{acl.sty} can also be used with
-lua\LaTeX{} and
-Xe\LaTeX{}, which are especially suitable for text in non-Latin scripts.
-The file \texttt{acl\_lualatex.tex} in this repository provides
-an example of how to use \texttt{acl.sty} with either
-lua\LaTeX{} or
-Xe\LaTeX{}.
+The key research question is: How does routing ASCII art through a VLM affect LLMs' ability to
+recognize and flag harmful content compared to processing ASCII as plain text? This question forms
+the foundation for the methodology and evaluation approach.
 
-\section{Preamble}
+Ultimately, this research contributes to both the technical improvement of LLM-VLM integration and
+the effect of protecting internet users from online abuse.
 
-The first line of the file must be
-\begin{quote}
-\begin{verbatim}
-\documentclass[11pt]{article}
-\end{verbatim}
-\end{quote}
+\section{Literature Review}
 
-To load the style file in the review version:
-\begin{quote}
-\begin{verbatim}
-\usepackage[review]{acl}
-\end{verbatim}
-\end{quote}
-For the final version, omit the \verb|review| option:
-\begin{quote}
-\begin{verbatim}
-\usepackage{acl}
-\end{verbatim}
-\end{quote}
+Large Language Models (LLMs) have developed rapidly in recent years. Recent models, such as GPT-4
+\citep{openai2023gpt4}, Claude Sonnet 4 \citep{anthropic2025claude}, and Gemini 2.5 Flash
+\citep{google2025gemini}, demonstrate pioneering performance on tasks like image generation and
+software code analysis \citep{ortiz2024chatgpt}, making them powerful tools in both academic and
+professional settings.
 
-To use Times Roman, put the following in the preamble:
-\begin{quote}
-\begin{verbatim}
-\usepackage{times}
-\end{verbatim}
-\end{quote}
-(Alternatives like txfonts or newtx are also acceptable.)
+One emerging area of LLM development involves multimodal content recognition, where researchers
+explore how LLMs can process and integrate information across different modalities. For instance,
+\citet{chandraumakantham2024multimodal} demonstrate that combining LLMs with visual features through
+feature fusion improves emotion recognition accuracy. Similarly, \citet{wu2024experimental} show that
+LLMs can perform competitive image classification when provided with structured textual input,
+highlighting their potential capacity for visual reasoning. In the financial field,
+\citet{lu2025financial} show how LLMs with domain adaptation can effectively handle complex entity
+recognition tasks. Besides, \citet{sah2025advancing} apply multimodal LLMs to autonomous driving
+systems, achieving robust performance in tasks like traffic sign recognition and detection by
+combining visual inputs and semantic understanding.
 
-Please see the \LaTeX{} source of this document for comments on other packages that may be useful.
+Despite this progress, LLMs still face challenges. Particularly, they struggle in tasks that require
+visual-textual alignment in non-traditional formats and fail to recognize the visual patterns in
+ASCII art \citep{wang2025text}. Multiple models were benchmarked on curated ASCII datasets,
+reporting average performance near 30\%, well below human levels \citep{jia2024visual}.
+Concurrently, \citet{bayani2023testing} tested ChatGPT (GPT-3.5) on cross-modal tasks involving
+ASCII art and found that GPT-3.5 handles trivial cases but struggles with anything abstract or
+complex, indicating that transformer LLMs have some latent visual understanding of ASCII art, but
+far from human-level. Besides, numerous studies illustrate that current LLMs lack robust
+inference-time mechanisms to interpret ASCII art, as their token-by-token reading fails to assemble
+the visual meaning, especially when the ASCII is built with positive words
+\citep{alon2023detecting,berezin2024read,jiang2024artprompt}.
 
-Set the title and author using \verb|\title| and \verb|\author|. Within the author list, format multiple authors using \verb|\and| and \verb|\And| and \verb|\AND|; please see the \LaTeX{} source for examples.
+Despite acknowledging these threats, existing literature does not explore dynamic rerouting strategies
+using VLMs. Without such mechanisms, harmful ASCII content can bypass detection in real-world AI
+moderation systems, allowing harassment or hate speech to persist on online media. This study
+addresses the gap by testing an identifier system that can more effectively detect hidden offensive
+ASCII content, ultimately enhancing online user protection.
 
-By default, the box containing the title and author names is set to the minimum of 5 cm. If you need more space, include the following in the preamble:
-\begin{quote}
-\begin{verbatim}
-\setlength\titlebox{<dim>}
-\end{verbatim}
-\end{quote}
-where \verb|<dim>| is replaced with a length. Do not set this length smaller than 5 cm.
+\section{Methodology}
 
-\section{Document Body}
+A custom dataset (see Appendix~\ref{app:b} for sample data) was constructed by collecting ASCII art
+examples from public sources manually, including ASCII art websites
+\citep{emoticons_nd,asciiemoticons_nd}, Reddit \citep{pixelplanetz2025}, and Wikipedia
+\citep{listofemoticons2025}. Each entry includes a unique ID, ASCII content, type (either kaomoji
+or multiline), and a binary offensive label (1 for offensive, 0 for benign). Offensive labeling was
+manually annotated, with an emphasis on visual interpretation and sociocultural context. This dataset
+aimed to reflect a diverse spectrum of ASCII content, including kaomojis and complex multiline ASCII
+art. Reddit samples were chosen to represent ASCII content commonly encountered by users in real-world
+social media, while online ASCII repositories reflect the typical sources used for creating or
+searching ASCII art. Together, these sources cover a broad range of ASCII formats that online media
+platforms may need to detect and interpret.
 
-\subsection{Footnotes}
+Three state-of-the-art LLMs were selected from three major AI developers: GPT-4o
+\citep{openai2025chatgpt}, Claude Sonnet 4 \citep{anthropic2025claude}, and Gemini 2.5 Flash
+\citep{google2025gemini}. They were selected for their capability of processing both text and image
+inputs. DeepSeek was initially considered but excluded because it did not support multimodal input,
+a core requirement for this study.
 
-Footnotes are inserted with the \verb|\footnote| command.\footnote{This is a footnote.}
+These models were then prompted to interpret the ASCII text (see Appendix~\ref{app:d} for the
+prompts). Their responses were evaluated by GPT-4.1 \citep{openai2025chatgpt} using three scoring
+metrics: coverage (1 if all expected features were correctly identified, 0 otherwise), hallucination
+(1 if any features were falsely identified, 0 if none), and improper detection (1 if improper or
+offensive elements were identified, 0 if not). GPT-4.1 was selected instead of human raters to
+ensure consistent application of evaluation criteria and eliminate subjective bias. The process was
+repeated with ASCII arts being converted into images for visual interpretation, and scores were
+saved in XLSX files (see Appendix~\ref{app:c} for sample results).
 
-\subsection{Tables and figures}
+Quantitative analysis was conducted using Python (Jupyter Notebook). Exploratory data analysis (EDA)
+was first performed to summarize model-wise performance on each metric. Improper detection was
+further evaluated for both text and image inputs using standard classification metrics: accuracy,
+precision, recall, and F1-score. Additional subgroup analysis was performed to evaluate differences
+in recognition performance (coverage, hallucination, and improper detection) across benign versus
+offensive ASCII and kaomoji versus multiline structures. Then, paired t-tests and Wilcoxon
+signed-rank tests were conducted to compare recognition performance between input modes across all
+three models. To quantify the magnitude and precision of improvement, mean score changes were
+computed along with their 90\% confidence intervals. This represents the range that would contain
+the true effect in 90\% of cases if the experiment were repeated many times under the same
+conditions. Finally, the statistics were visualized using Matplotlib to provide clearer
+interpretation and presentation.
 
-See Table~\ref{tab:accents} for an example of a table and its caption.
-\textbf{Do not override the default caption sizes.}
+Analyses progressed from description to inference. EDA with standard classification metrics and
+subgroup comparisons established baseline patterns and differences by ASCII type and offensiveness.
+Changes from text to image input were then tested using a paired t-test and, for robustness to
+non-normality (i.e., when differences are not normally distributed), the Wilcoxon signed-rank test.
+Ninety percent confidence intervals for the improvement of recognition performance complemented those
+tests. Final visualizations integrated results and highlighted comparative patterns for
+interpretation.
 
-\begin{table}
-  \centering
-  \begin{tabular}{lc}
-    \hline
-    \textbf{Command} & \textbf{Output} \\
-    \hline
-    \verb|{\"a}|     & {\"a}           \\
-    \verb|{\^e}|     & {\^e}           \\
-    \verb|{\`i}|     & {\`i}           \\
-    \verb|{\.I}|     & {\.I}           \\
-    \verb|{\o}|      & {\o}            \\
-    \verb|{\'u}|     & {\'u}           \\
-    \verb|{\aa}|     & {\aa}           \\\hline
-  \end{tabular}
-  \begin{tabular}{lc}
-    \hline
-    \textbf{Command} & \textbf{Output} \\
-    \hline
-    \verb|{\c c}|    & {\c c}          \\
-    \verb|{\u g}|    & {\u g}          \\
-    \verb|{\l}|      & {\l}            \\
-    \verb|{\~n}|     & {\~n}           \\
-    \verb|{\H o}|    & {\H o}          \\
-    \verb|{\v r}|    & {\v r}          \\
-    \verb|{\ss}|     & {\ss}           \\
-    \hline
-  \end{tabular}
-  \caption{Example commands for accented characters, to be used in, \emph{e.g.}, Bib\TeX{} entries.}
-  \label{tab:accents}
-\end{table}
+\section{Findings}
 
-As much as possible, fonts in figures should conform
-to the document fonts. See Figure~\ref{fig:experiments} for an example of a figure and its caption.
+This study focuses on evaluating whether a generalizable identifier system can improve the ability
+of LLMs to recognize and moderate ASCII-based content.
 
-Using the \verb|graphicx| package graphics files can be included within figure
-environment at an appropriate point within the text.
-The \verb|graphicx| package supports various optional arguments to control the
-appearance of the figure.
-You must include it explicitly in the \LaTeX{} preamble (after the
-\verb|\documentclass| declaration and before \verb|\begin{document}|) using
-\verb|\usepackage{graphicx}|.
+The main hypothesis was that converting ASCII text into image input would increase recognition
+accuracy and reduce hallucination (false positives), especially in the case of complex or offensive
+ASCII art. Findings from multiple statistical analyses strongly support this claim.
+
+Exploratory data analysis showed that recognition performance varies significantly by content type
+and input mode. For simple ASCII art (kaomoji), all three models achieved nearly perfect recognition
+(accuracy = 0.95) and minimal hallucination (hallucination rate = 0.05) even with text input.
+Rerouting made no significant improvement, confirming that visual rerouting is unnecessary for
+kaomojis.
+
+In contrast, multiline ASCII art revealed major limitations in text-based recognition. Accuracy was
+low (accuracy = 0.12) and hallucination was high (hallucination rate = 0.88) across models. After
+converting to image input, the recognition rate improved to 0.81, and hallucination fell to 0.14.
+This demonstrates the identifier system's effectiveness in supporting visual-text alignment in
+complex formats.
+
+As is depicted in Figure~\ref{fig:model_performance}, subgroup analysis further highlighted that
+the system benefited offensive ASCII samples most. Recognition accuracy for offensive content
+increased from 0.46 to 0.79, while hallucination decreased from 0.54 to 0.17. For non-offensive
+contents, image input still improved performance (accuracy: 0.78 $\rightarrow$ 0.92; hallucination:
+0.22 $\rightarrow$ 0.06), though the gains were less significant. These results indicate that the
+system is particularly effective for offensive ASCII art, while still providing moderate benefits for
+non-offensive content.
 
 \begin{figure}[t]
-  \includegraphics[width=\columnwidth]{example-image-golden}
-  \caption{A figure with a caption that runs for more than one line.
-    Example image is usually available through the \texttt{mwe} package
-    without even mentioning it in the preamble.}
-  \label{fig:experiments}
+  \centering
+  \includegraphics[width=\columnwidth]{img/figure_1.png}
+  \caption{Model performance on ASCII art recognition. Results are shown for both text and image
+    input modes across kaomoji and multiline subgroups, separated by offensive and non-offensive
+    labels.}
+  \label{fig:model_performance}
 \end{figure}
 
+Improper detection performance was evaluated using standard metrics. The results
+(Table~\ref{tab:text_detection}, Table~\ref{tab:image_detection}, and
+Figure~\ref{fig:f1_scores}) show clear improvements in detection performance after rerouting ASCII
+art through image input. With text input, GPT-4o and Claude-Sonnet-4 both had F1-scores of 0.67,
+while Gemini-2.5-Flash reached 0.55. After rerouting, GPT-4o and Gemini improved to 0.93 and 0.67,
+and Claude-Sonnet-4 achieved perfect detection (F1 = 1.00). Precision was consistently high across
+all settings, but recall significantly improved with image input, especially for GPT-4o
+(0.50 $\rightarrow$ 0.88) and Claude (0.50 $\rightarrow$ 1.00). These results suggest that image
+input helps models better recognize visual patterns and reduces their tendency to overlook
+inappropriate content embedded in ASCII art.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{lcccc}
+    \toprule
+    \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
+    \midrule
+    GPT-4o            & -- & -- & -- & -- \\
+    Claude-Sonnet-4   & -- & -- & -- & -- \\
+    Gemini-2.5-Flash  & -- & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+  \caption{Detection performance of LLMs on improper ASCII content using \textbf{text} input.
+    Accuracy measures the proportion of total predictions that are correct. Precision reflects the
+    proportion of predicted improper ASCII samples that are actually improper (i.e., it penalizes
+    false positives). Recall quantifies the proportion of actual improper ASCII samples correctly
+    identified (i.e., it penalizes false negatives). F1-score is the harmonic mean of precision and
+    recall, $F_1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} +
+    \text{Recall}}$, offering a balanced measure when both false positives and false negatives
+    matter. Higher values indicate the model is both accurate and comprehensive in detecting
+    offensive content. \textbf{[PLACEHOLDER: fill in values from results]}}
+  \label{tab:text_detection}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{lcccc}
+    \toprule
+    \textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
+    \midrule
+    GPT-4o            & -- & -- & -- & -- \\
+    Claude-Sonnet-4   & -- & -- & -- & -- \\
+    Gemini-2.5-Flash  & -- & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+  \caption{Detection performance of LLMs on improper ASCII content using \textbf{image} input.
+    Metrics are defined as in Table~\ref{tab:text_detection}.
+    \textbf{[PLACEHOLDER: fill in values from results]}}
+  \label{tab:image_detection}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  % [PLACEHOLDER: replace with actual figure]
+  \fbox{\rule{0pt}{4cm}\rule{0.88\columnwidth}{0pt}}
+  \caption{Offensive ASCII detection F1-score by model, comparing text input versus image input
+    across GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash.
+    \textbf{[PLACEHOLDER: replace box with actual figure]}}
+  \label{fig:f1_scores}
+\end{figure}
+
+To evaluate the statistical significance of these gains, paired t-tests and Wilcoxon signed-rank
+tests were applied to recognition scores across input modes (Table~\ref{tab:significance}). Results
+confirmed significant improvements for GPT-4o and Claude-Sonnet-4 ($p < 0.05$), and marginal
+significance for Gemini-2.5-Flash ($p \approx 0.07$), using a 90\% confidence level. These tests
+validated that improvements were not due to random variation.
+
+\begin{table}[t]
+  \centering
+  \begin{tabular}{lcccc}
+    \toprule
+    & \multicolumn{2}{c}{\textbf{Paired t-test}} & \multicolumn{2}{c}{\textbf{Wilcoxon}} \\
+    \cmidrule(lr){2-3} \cmidrule(lr){4-5}
+    \textbf{Model} & \textbf{Statistic} & \textbf{\textit{p}-value}
+                   & \textbf{Statistic} & \textbf{\textit{p}-value} \\
+    \midrule
+    GPT-4o            & -- & -- & -- & -- \\
+    Claude-Sonnet-4   & -- & -- & -- & -- \\
+    Gemini-2.5-Flash  & -- & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+  \caption{Statistical significance of recognition accuracy improvement after image-based rerouting,
+    evaluated by both paired t-test and Wilcoxon signed-rank test.
+    \textbf{[PLACEHOLDER: fill in values from results]}}
+  \label{tab:significance}
+\end{table}
+
+Finally, bootstrap resampling (Figure~\ref{fig:bootstrap}) was used to estimate the average
+magnitude and uncertainty of improvement. Mean recognition gains ranged from $+0.13$ (Gemini) to
+$+0.21$ (GPT-4o), with 90\% confidence intervals excluding zero for all models. These intervals
+(e.g., GPT-4o: $[0.094, 0.321]$) demonstrate that the observed improvements are statistically
+credible and generalizable.
+
 \begin{figure*}[t]
-  \includegraphics[width=0.48\linewidth]{example-image-a} \hfill
-  \includegraphics[width=0.48\linewidth]{example-image-b}
-  \caption {A minimal working example to demonstrate how to place
-    two images side-by-side.}
+  \centering
+  % [PLACEHOLDER: replace with actual figure]
+  \fbox{\rule{0pt}{5cm}\rule{0.88\linewidth}{0pt}}
+  \caption{Bootstrap distribution of mean recognition improvement for GPT-4o, Claude-Sonnet-4, and
+    Gemini-2.5-Flash. Each distribution shows the resampled mean gain from text to image input,
+    with 90\% confidence intervals marked. \textbf{[PLACEHOLDER: replace box with actual figure]}}
+  \label{fig:bootstrap}
 \end{figure*}
 
-\subsection{Hyperlinks}
+In summary, the identifier-based rerouting method improves ASCII recognition across all evaluated
+dimensions. It is unnecessary for simple content. However, it provides substantial and statistically
+supported benefits for multiline ASCII inputs. This suggests it is a valuable addition to LLM-based
+content moderation pipelines.
 
-Users of older versions of \LaTeX{} may encounter the following error during compilation:
-\begin{quote}
-\verb|\pdfendlink| ended up in different nesting level than \verb|\pdfstartlink|.
-\end{quote}
-This happens when pdf\LaTeX{} is used and a citation splits across a page boundary. The best way to fix this is to upgrade \LaTeX{} to 2018-12-01 or later.
+\section{Discussion}
 
-\subsection{Citations}
+This study explored whether using a generalizable identifier system can improve the ability of LLMs
+to recognize and moderate ASCII-based content. The findings confirmed the hypothesis: the
+image-based identifier system significantly improved recognition accuracy and reduced hallucination,
+especially for offensive ASCII content. The recognition of multiline ASCII art samples improved the
+most, with significant improvement in F1-score and recall. However, kaomoji performed well even
+without applying this system. This shows that this system may be unnecessary for kaomojis.
 
-\begin{table*}
-  \centering
-  \begin{tabular}{lll}
-    \hline
-    \textbf{Output}           & \textbf{natbib command} & \textbf{ACL only command} \\
-    \hline
-    \citep{Gusfield:97}       & \verb|\citep|           &                           \\
-    \citealp{Gusfield:97}     & \verb|\citealp|         &                           \\
-    \citet{Gusfield:97}       & \verb|\citet|           &                           \\
-    \citeyearpar{Gusfield:97} & \verb|\citeyearpar|     &                           \\
-    \citeposs{Gusfield:97}    &                         & \verb|\citeposs|          \\
-    \hline
-  \end{tabular}
-  \caption{\label{citation-guide}
-    Citation commands supported by the style file.
-    The style is based on the natbib package and supports all natbib citation commands.
-    It also supports commands defined in previous ACL style files for compatibility.
-  }
-\end{table*}
+These findings suggest that LLMs benefit greatly from multimodal input (text + image) when dealing
+with ASCII art recognition. The identifier system effectively addresses the limitation LLMs have by
+allowing ASCII art to be interpreted through VLM. This supports safer and more reliable AI content
+moderation systems, especially in user-generated online environments.
 
-Table~\ref{citation-guide} shows the syntax supported by the style files.
-We encourage you to use the natbib styles.
-You can use the command \verb|\citet| (cite in text) to get ``author (year)'' citations, like this citation to a paper by \citet{Gusfield:97}.
-You can use the command \verb|\citep| (cite in parentheses) to get ``(author, year)'' citations \citep{Gusfield:97}.
-You can use the command \verb|\citealp| (alternative cite without parentheses) to get ``author, year'' citations, which is useful for using citations within parentheses (e.g. \citealp{Gusfield:97}).
+Future research should focus on building a larger and more diverse dataset, so the result will be
+more reliable. In addition, improving prompt design may lead to better recognition. Another promising
+direction would be to develop a classifier that can first identify the type of ASCII art and then
+handle it with a specific recognition strategy. This would allow the system to avoid unnecessary
+rerouting for simple content while still applying enhanced methods for complex inputs. Future research
+could also explore the social motivations behind using ASCII art for offensive communication.
+Understanding why people send harmful ASCII art may help build better prevention strategies, such as
+platform-level moderation tools or early-warning identifiers. Finally, since GPT-5 was released after
+the completion of the experiments, replicating the experiments with this newer model could reveal
+whether the observed limitations persist and whether the identifier system remains effective in a
+stronger baseline environment.
 
-A possessive citation can be made with the command \verb|\citeposs|.
-This is not a standard natbib command, so it is generally not compatible
-with other style files.
-
-\subsection{References}
-
-\nocite{Ando2005,andrew2007scalable,rasooli-tetrault-2015}
-
-The \LaTeX{} and Bib\TeX{} style files provided roughly follow the American Psychological Association format.
-If your own bib file is named \texttt{custom.bib}, then placing the following before any appendices in your \LaTeX{} file will generate the references section for you:
-\begin{quote}
-\begin{verbatim}
-\bibliography{custom}
-\end{verbatim}
-\end{quote}
-
-You can obtain the complete ACL Anthology as a Bib\TeX{} file from \url{https://aclweb.org/anthology/anthology.bib.gz}.
-To include both the Anthology and your own .bib file, use the following instead of the above.
-\begin{quote}
-\begin{verbatim}
-\bibliography{anthology,custom}
-\end{verbatim}
-\end{quote}
-
-Please see Section~\ref{sec:bibtex} for information on preparing Bib\TeX{} files.
-
-\subsection{Equations}
-
-An example equation is shown below:
-\begin{equation}
-  \label{eq:example}
-  A = \pi r^2
-\end{equation}
-
-Labels for equation numbers, sections, subsections, figures and tables
-are all defined with the \verb|\label{label}| command and cross references
-to them are made with the \verb|\ref{label}| command.
-
-This an example cross-reference to Equation~\ref{eq:example}.
-
-\subsection{Appendices}
-
-Use \verb|\appendix| before any appendix section to switch the section numbering over to letters. See Appendix~\ref{sec:appendix} for an example.
-
-\section{Bib\TeX{} Files}
-\label{sec:bibtex}
-
-Unicode cannot be used in Bib\TeX{} entries, and some ways of typing special characters can disrupt Bib\TeX's alphabetization. The recommended way of typing special characters is shown in Table~\ref{tab:accents}.
-
-Please ensure that Bib\TeX{} records contain DOIs or URLs when possible, and for all the ACL materials that you reference.
-Use the \verb|doi| field for DOIs and the \verb|url| field for URLs.
-If a Bib\TeX{} entry has a URL or DOI field, the paper title in the references section will appear as a hyperlink to the paper, using the hyperref \LaTeX{} package.
+Overall, this study demonstrates a method of improving LLMs' ability to recognize ASCII art with a
+lightweight, image-based identifier system. With further development, these approaches can contribute
+to safer and more reliable AI content moderation systems in online media.
 
 \section*{Limitations}
 
-This document does not cover the content requirements for ACL or any
-other specific venue.  Check the author instructions for
-information on
-maximum page lengths, the required ``Limitations'' section,
-and so on.
+Some limitations must be acknowledged. First, the dataset used in this study remains relatively
+small. Though manually created for quality and diversity, it may still be affected by outliers or
+unrepresentative examples, potentially influencing the robustness of statistical conclusions. Second,
+the system offers limited improvement for kaomoji, where LLMs already perform well. This suggests
+that using this system for kaomojis may not be necessary. Third, model responses were evaluated using
+GPT-4.1. Despite its reliability, it may still introduce evaluation errors since hallucinations are
+inevitable for LLMs.
 
 \section*{Acknowledgments}
 
-This document has been adapted
-by Steven Bethard, Ryan Cotterell and Rui Yan
-from the instructions for earlier ACL and NAACL proceedings, including those for
-ACL 2019 by Douwe Kiela and Ivan Vuli\'{c},
-NAACL 2019 by Stephanie Lukin and Alla Roskovskaya,
-ACL 2018 by Shay Cohen, Kevin Gimpel, and Wei Lu,
-NAACL 2018 by Margaret Mitchell and Stephanie Lukin,
-Bib\TeX{} suggestions for (NA)ACL 2017/2018 from Jason Eisner,
-ACL 2017 by Dan Gildea and Min-Yen Kan,
-NAACL 2017 by Margaret Mitchell,
-ACL 2012 by Maggie Li and Michael White,
-ACL 2010 by Jing-Shin Chang and Philipp Koehn,
-ACL 2008 by Johanna D. Moore, Simone Teufel, James Allan, and Sadaoki Furui,
-ACL 2005 by Hwee Tou Ng and Kemal Oflazer,
-ACL 2002 by Eugene Charniak and Dekang Lin,
-and earlier ACL and EACL formats written by several people, including
-John Chen, Henry S. Thompson and Donald Walker.
-Additional elements were taken from the formatting instructions of the \emph{International Joint Conference on Artificial Intelligence} and the \emph{Conference on Computer Vision and Pattern Recognition}.
+I am deeply grateful to Professor Mi-Young Kim for her continuous guidance and thoughtful feedback
+throughout every stage of this paper. Her advice and encouragement were essential for the improvement
+and completion of this work. I would also like to thank the organizer of an NLP research seminar at
+UBC, which inspired the initial idea for this study.
 
-% Bibliography entries for the entire Anthology, followed by custom entries
-%\bibliography{custom,anthology-overleaf-1,anthology-overleaf-2}
+This work also made use of AI assistance. ChatGPT 4o and 4.1 \citep{openai2025chatgpt} were used
+for polishing the language and debugging some portions of the code. All outputs were critically
+reviewed and edited by the author.
 
-% Custom bibliography entries only
 \bibliography{custom}
 
 \appendix
 
-\section{Example Appendix}
-\label{sec:appendix}
+\section{Example of Toxic ASCII Art}
+\label{app:a}
 
-This is an appendix.
+The following are examples of ASCII art from the dataset that include visually encoded toxic content.
+Offensive terms have been partially redacted for ethical presentation.
+
+\begin{figure}[h]
+  \centering
+  % [PLACEHOLDER: replace with actual toxic multiline ASCII art sample image]
+  \fbox{\rule{0pt}{4cm}\rule{0.88\columnwidth}{0pt}}
+  \caption{Toxic multiline ASCII art sample. Content has been redacted for ethical presentation.
+    \textbf{[PLACEHOLDER: replace box with actual figure]}}
+  \label{fig:toxic_multiline}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \begin{verbatim}
+(o_o) /--8===D~
+  \end{verbatim}
+  \caption{Toxic kaomoji sample. Characters form an offensive symbol.
+    Content is shown as-is for research documentation purposes.}
+  \label{fig:toxic_kaomoji}
+\end{figure}
+
+\section{Sample Data}
+\label{app:b}
+
+\begin{table*}[h]
+  \centering
+  \begin{tabular}{clll}
+    \toprule
+    \textbf{ID} & \textbf{ASCII Content} & \textbf{Type} & \textbf{Offensive} \\
+    \midrule
+    -- & -- & -- & -- \\
+    -- & -- & -- & -- \\
+    -- & -- & -- & -- \\
+    -- & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+  \caption{Sample entries from the dataset. The \textit{Type} column indicates whether the entry is
+    a kaomoji or multiline ASCII art. The \textit{Offensive} column is a binary label (1 = offensive,
+    0 = benign). \textbf{[PLACEHOLDER: fill in sample rows from dataset]}}
+  \label{tab:sample_data}
+\end{table*}
+
+\section{Test Result}
+\label{app:c}
+
+\begin{table*}[h]
+  \centering
+  \begin{tabular}{cllccc}
+    \toprule
+    \textbf{ID} & \textbf{Model} & \textbf{Input Mode} & \textbf{Coverage}
+                & \textbf{Hallucination} & \textbf{Improper Detection} \\
+    \midrule
+    -- & -- & -- & -- & -- & -- \\
+    -- & -- & -- & -- & -- & -- \\
+    -- & -- & -- & -- & -- & -- \\
+    \bottomrule
+  \end{tabular}
+  \caption{Sample entries from \texttt{test\_result.xlsx}. Coverage, Hallucination, and Improper
+    Detection are binary scores (0 or 1). \textbf{[PLACEHOLDER: fill in sample rows from
+    test\_result.xlsx]}}
+  \label{tab:test_result}
+\end{table*}
+
+\section{Prompts}
+\label{app:d}
+
+\paragraph{Prompt D1: Text-based input}
+
+\begin{quote}
+The following is a block of ASCII characters. These characters may form a symbolic or artistic
+pattern such as a face, an animal, or an emotional scene. Your task is to describe what it depicts
+as accurately as possible, including any objects, characters, or emotions it conveys, and identify
+if it is improper or offensive. If it is unrecognizable or just random text, say so explicitly.
+
+\medskip
+\noindent ASCII Input:
+
+\begin{verbatim}
+<ASCII block here>
+\end{verbatim}
+
+\noindent Your response should include:
+\begin{enumerate}
+  \item What it is (e.g., face, cat, dancing figure, unrecognizable).
+  \item Key visual elements (e.g., eyes, arms, tail, posture).
+  \item Emotion or mood if any (e.g., happy, angry, confused).
+\end{enumerate}
+Be precise and do not over-interpret.
+\end{quote}
+
+\paragraph{Prompt D2: Image-based input}
+
+\begin{quote}
+You are analyzing an image that appears to be an ASCII art --- a picture made entirely of
+characters. Please describe what the image visually represents as if it were a drawing. Focus only
+on what can be seen in the image, not what might be implied by the characters themselves.
+
+\medskip
+\noindent Your output should answer:
+\begin{enumerate}
+  \item What object, character, or scene is depicted?
+  \item What specific visual components stand out? (e.g., a pair of eyes, curved arms, symbols
+        forming ears or horns)
+  \item What emotion or action (if any) does the image express?
+  \item Is the image improper/offensive?
+\end{enumerate}
+If the image contains no recognizable shape or pattern, say ``Unrecognizable''.
+\end{quote}
+
+\section{Codes}
+\label{app:e}
+
+\paragraph{Code E1: Bootstrapping}
+
+\begin{quote}
+  \textit{[PLACEHOLDER: insert bootstrapping code here]}
+\end{quote}
+
+\paragraph{Code E2: Figure 3 Generation}
+
+\begin{quote}
+  \textit{[PLACEHOLDER: insert Figure 3 plotting code here]}
+\end{quote}
 
 \end{document}
