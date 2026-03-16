@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Alon and Kamfonas(2023)}]{alon2023detecting}
@@ -11,10 +11,6 @@ Gilad Alon and Michael Kamfonas. 2023.
 {Anthropic}. 2025.
 \newblock \href {https://claude.ai/new} {Claude ({Sonnet 4} version) [{Large}
   language model]}.
-
-\bibitem[{{ASCII-Emoticons}(n.d.)}]{asciiemoticons_nd}
-{ASCII-Emoticons}. n.d.
-\newblock \href {https://emojicombos.com/ASCII-Emoticons} {Emoji combos}.
 
 \bibitem[{Bayani(2023)}]{bayani2023testing}
 Douglas Bayani. 2023.
@@ -40,10 +36,6 @@ Oruganti Chandraumakantham, N.~Gowtham, Mohammed Zakariah, and Abdulaziz
   emotion recognition using feature fusion: An {LLM}-based approach}.
 \newblock \emph{IEEE Access}, 12:108052--108071.
 
-\bibitem[{{Emoticons}(n.d.)}]{emoticons_nd}
-{Emoticons}. n.d.
-\newblock \href {https://www.messletters.com/en/emoticons/} {Messletters}.
-
 \bibitem[{{Google}(2025)}]{google2025gemini}
 {Google}. 2025.
 \newblock \href {https://gemini.google.com/app} {Gemini (2.5 {Flash} version)
@@ -65,50 +57,16 @@ Fengqing Jiang, Zhangchen Xu, Luyao Niu, Zhen Xiang, Bhavya Ramasubramanian,
   art-based jailbreak attacks against aligned {LLMs}}.
 \newblock \emph{Preprint}, arXiv:2402.11753.
 
-\bibitem[{Lu and Huo(2025)}]{lu2025financial}
-Yu-Ting Lu and Yuexian Huo. 2025.
-\newblock \href {https://arxiv.org/abs/2501.02237} {Financial named entity
-  recognition: How far can {LLM} go?}
-\newblock \emph{Preprint}, arXiv:2501.02237.
-
 \bibitem[{O'Grady and Rickard(2008)}]{ogrady2008automatic}
 Paul~D. O'Grady and Scott~T. Rickard. 2008.
 \newblock \href {https://ieeexplore.ieee.org/abstract/document/4780951}
   {Automatic {ASCII} art conversion of binary images using non-negative
   constraints}.
 
-\bibitem[{{OpenAI}(2023)}]{openai2023gpt4}
-{OpenAI}. 2023.
-\newblock \href {https://arxiv.org/abs/2303.08774} {{GPT-4} technical report}.
-\newblock \emph{Preprint}, arXiv:2303.08774.
-
 \bibitem[{{OpenAI}(2025)}]{openai2025chatgpt}
 {OpenAI}. 2025.
 \newblock \href {https://chat.openai.com/chat} {{ChatGPT} (july 15 version)
   [{Large} language model]}.
-
-\bibitem[{Ortiz(2024)}]{ortiz2024chatgpt}
-Sabrina Ortiz. 2024.
-\newblock \href
-  {https://www.zdnet.com/article/what-is-chatgpt-and-why-does-it-matter-heres-everything-you-need-to-know/}
-  {What is {ChatGPT}, and why does it matter? {Here's} what you need to know}.
-\newblock ZDNET.
-
-\bibitem[{PIXELPLANETZ(2025)}]{pixelplanetz2025}
-PIXELPLANETZ. 2025.
-\newblock \href
-  {https://www.reddit.com/r/Kaomoji/comments/1i7s1pg/i_want_to_see_my_little_boy/}
-  {I want to see my little boy [online forum post]}.
-\newblock Reddit.
-
-\bibitem[{Sah et~al.(2025)Sah, Shaw, Lian, Baig, Wen, Jiang, Yang, and
-  Yang}]{sah2025advancing}
-Chiranjibi~Kumar Sah, Arjun~Kumar Shaw, Xin Lian, Atif~Sarwar Baig, Tao Wen,
-  Kai Jiang, Mi~Yang, and Diange Yang. 2025.
-\newblock \href {https://arxiv.org/abs/2503.06313} {Advancing autonomous
-  vehicle intelligence: Deep learning and multimodal {LLM} for traffic sign
-  recognition and robust lane detection}.
-\newblock \emph{Preprint}, arXiv:2503.06313.
 
 \bibitem[{Wang et~al.(2025)Wang, Hooi, Wang, Yang, Huang, and
   Cai}]{wang2025text}
@@ -117,12 +75,6 @@ Zhiyuan Wang, Bryan Hooi, Yiwei Wang, Ming-Hsuan Yang, Zewei Huang, and Yuzhen
 \newblock \href {https://arxiv.org/abs/2504.01589} {Text speaks louder than
   vision: {ASCII} art reveals textual biases in vision-language models}.
 \newblock \emph{Preprint}, arXiv:2504.01589.
-
-\bibitem[{{Wikipedia}(2025)}]{listofemoticons2025}
-{Wikipedia}. 2025.
-\newblock \href
-  {https://en.wikipedia.org/w/index.php?title=List_of_emoticons&oldid=1295711857}
-  {List of emoticons}.
 
 \bibitem[{Wu et~al.(2024)Wu, Tang, Yang, Hao, Lai, and
   Liu}]{wu2024experimental}

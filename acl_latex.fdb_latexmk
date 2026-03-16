@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex acl_latex"] 1772431837.61665 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1772432979.1452 0
+["bibtex acl_latex"] 1773640515.97842 "acl_latex.aux" "acl_latex.bbl" "acl_latex" 1773640517.58215 0
   "./acl_natbib.bst" 1772427544 47126 3d1af46d62cc9172ef6e42b56c1cd613 ""
   "./custom.bib" 1772430914 6360 dc0ca80c929945307230793fb91ae85e ""
-  "acl_latex.aux" 1772432978 11216 94d5c0a8990d8f5c217d2870bdcb316d "pdflatex"
+  "acl_latex.aux" 1773640516 12424 4b81463a990dda9c355dec805379b7cb "pdflatex"
   (generated)
   "acl_latex.bbl"
   "acl_latex.blg"
   (rewritten before read)
-["pdflatex"] 1772432977.6274 "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1772432979.14562 0
-  "C:/Users/David/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772431587 96176 40a8022d15c5925d7081b1ad66e03248 ""
+["pdflatex"] 1773640516.2397 "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" "acl_latex.pdf" "acl_latex" 1773640517.58252 0
+  "C:/Users/David/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772748055 97278 e90578c9b55928fbed076ca0d65196b5 ""
   "C:/Users/David/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1772429523 13331443 7d33d8bff672ca0bc72f2dab4c0c4740 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1557959318 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
@@ -16,6 +16,7 @@
   "D:/personal/Downloads/useful_app/MikTex/fonts/tfm/adobe/times/ptmb8t.tfm" 1136801054 6880 f19b8995b61c334d78fc734065f6b4d4 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/tfm/adobe/times/ptmbi8r.tfm" 1136801054 4480 10409ed8bab5aea9ec9a78028b763919 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/tfm/adobe/times/ptmbi8t.tfm" 1136801054 6784 37b32cc10800b5afa030d935c393695a ""
+  "D:/personal/Downloads/useful_app/MikTex/fonts/tfm/adobe/times/ptmr8c.tfm" 1136801054 1352 fa28a7e6d323c65ce7d13d5342ff6be2 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/tfm/adobe/times/ptmr8r.tfm" 1136801054 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/tfm/adobe/times/ptmr8t.tfm" 1136801054 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/tfm/adobe/times/ptmri8r.tfm" 1136801054 4640 532ca3305aad10cc01d769f3f91f1029 ""
@@ -52,6 +53,7 @@
   "D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmri8a.pfb" 1136882148 45458 504e2b06fa82109d168c7a0afb09e145 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/vf/adobe/times/ptmb8t.vf" 1136801054 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/vf/adobe/times/ptmbi8t.vf" 1136801054 2324 51908dae6e03953a90119973962f0e4d ""
+  "D:/personal/Downloads/useful_app/MikTex/fonts/vf/adobe/times/ptmr8c.vf" 1136801054 3556 8a9a6dcbcd146ef985683f677f4758a6 ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/vf/adobe/times/ptmr8t.vf" 1136801054 2348 91706c542228501c410c266421fbe30c ""
   "D:/personal/Downloads/useful_app/MikTex/fonts/vf/adobe/times/ptmri8t.vf" 1136801054 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
   "D:/personal/Downloads/useful_app/MikTex/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -119,6 +121,7 @@
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/natbib/natbib.sty" 1292249081 46712 1c8843383c0bd05870c45fa0ebea6cc2 ""
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/psnfss/t1ptm.fd" 1585253778 817 61d7da1e9f9e74989b196d147e623736 ""
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/psnfss/times.sty" 1585926771 888 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
+  "D:/personal/Downloads/useful_app/MikTex/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/upquote/upquote.sty" 1335534756 1088 517e01cde97c1c0baf72e69d43aa5a2e ""
@@ -126,11 +129,11 @@
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "D:/personal/Downloads/useful_app/MikTex/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
   "acl.sty" 1772427544 11927 e2c027f483aa40e577ed34264c8b0655 ""
-  "acl_latex.aux" 1772432978 11216 94d5c0a8990d8f5c217d2870bdcb316d "pdflatex"
-  "acl_latex.bbl" 1772431837 5745 cdd167fd53cf31bdfad9356264d0f022 "bibtex acl_latex"
-  "acl_latex.out" 1772432978 1047 040d32d2df190d14505e294c5fa110df "pdflatex"
-  "acl_latex.tex" 1772432976 26981 d272947279d78cc87a2dc2a22d5a4d3c ""
-  "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" 1772432976 26981 d272947279d78cc87a2dc2a22d5a4d3c ""
+  "acl_latex.aux" 1773640516 12424 4b81463a990dda9c355dec805379b7cb "pdflatex"
+  "acl_latex.bbl" 1773640516 3809 7a116ce78dfd9d1224f7afce0c8e2db5 "bibtex acl_latex"
+  "acl_latex.out" 1773640517 1735 f5929dadd7f0b98e478d60d7fe35218c "pdflatex"
+  "acl_latex.tex" 1773640514 31958 a8c06a3e240a8e78cfd3453e610031d2 ""
+  "d:/Study/Research/CPSC 448/NLP4Kaomoji/ASCII-Art-Rich-Generator/acl-style-files/acl_latex.tex" 1773640514 31958 a8c06a3e240a8e78cfd3453e610031d2 ""
   "img/figure_1.png" 1772430476 15788 a2be71ab6d75691b0399ce3f35a8bac1 ""
   (generated)
   "acl_latex.aux"

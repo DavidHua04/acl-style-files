@@ -3,89 +3,87 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{openai2025chatgpt,anthropic2025claude,google2025gemini}
+\citation{ogrady2008automatic}
+\citation{jiang2024artprompt,jia2024visual,wang2025text}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{This paper.}{1}{section*.1}\protected@file@percent }
 \citation{openai2025chatgpt}
 \citation{anthropic2025claude}
 \citation{google2025gemini}
-\citation{ogrady2008automatic}
-\citation{openai2023gpt4}
-\citation{anthropic2025claude}
-\citation{google2025gemini}
-\citation{ortiz2024chatgpt}
 \citation{chandraumakantham2024multimodal}
 \citation{wu2024experimental}
-\citation{lu2025financial}
-\citation{sah2025advancing}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{1}{section.2}\protected@file@percent }
-\citation{wang2025text}
 \citation{jia2024visual}
 \citation{bayani2023testing}
-\citation{alon2023detecting,berezin2024read,jiang2024artprompt}
-\citation{emoticons_nd,asciiemoticons_nd}
-\citation{pixelplanetz2025}
-\citation{listofemoticons2025}
-\citation{openai2025chatgpt}
-\citation{anthropic2025claude}
-\citation{google2025gemini}
-\citation{openai2025chatgpt}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{2}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Findings}{3}{section.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Model performance on ASCII art recognition. Results are shown for both text and image input modes across kaomoji and multiline subgroups, separated by offensive and non-offensive labels.}}{3}{figure.caption.1}\protected@file@percent }
+\citation{wang2025text}
+\citation{jiang2024artprompt}
+\citation{alon2023detecting}
+\citation{berezin2024read}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Dataset Construction}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{English corpus.}{3}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Chinese corpus.}{3}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Image generation pipeline.}{3}{section*.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces ASCII art construction modes (L1--L8). Modes L5 and L8 embed semantically positive words as fill characters, making character-level content appear benign.}}{3}{table.caption.5}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:model_performance}{{1}{3}{Model performance on ASCII art recognition. Results are shown for both text and image input modes across kaomoji and multiline subgroups, separated by offensive and non-offensive labels}{figure.caption.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Detection performance of LLMs on improper ASCII content using \textbf  {text} input. Accuracy measures the proportion of total predictions that are correct. Precision reflects the proportion of predicted improper ASCII samples that are actually improper (i.e., it penalizes false positives). Recall quantifies the proportion of actual improper ASCII samples correctly identified (i.e., it penalizes false negatives). F1-score is the harmonic mean of precision and recall, $F_1 = 2 \times \frac  {\text  {Precision} \times \text  {Recall}}{\text  {Precision} + \text  {Recall}}$, offering a balanced measure when both false positives and false negatives matter. Higher values indicate the model is both accurate and comprehensive in detecting offensive content. \textbf  {[PLACEHOLDER: fill in values from results]}}}{4}{table.caption.2}\protected@file@percent }
-\newlabel{tab:text_detection}{{1}{4}{Detection performance of LLMs on improper ASCII content using \textbf {text} input. Accuracy measures the proportion of total predictions that are correct. Precision reflects the proportion of predicted improper ASCII samples that are actually improper (i.e., it penalizes false positives). Recall quantifies the proportion of actual improper ASCII samples correctly identified (i.e., it penalizes false negatives). F1-score is the harmonic mean of precision and recall, $F_1 = 2 \times \frac {\text {Precision} \times \text {Recall}}{\text {Precision} + \text {Recall}}$, offering a balanced measure when both false positives and false negatives matter. Higher values indicate the model is both accurate and comprehensive in detecting offensive content. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Detection performance of LLMs on improper ASCII content using \textbf  {image} input. Metrics are defined as in Table~\ref {tab:text_detection}. \textbf  {[PLACEHOLDER: fill in values from results]}}}{4}{table.caption.3}\protected@file@percent }
-\newlabel{tab:image_detection}{{2}{4}{Detection performance of LLMs on improper ASCII content using \textbf {image} input. Metrics are defined as in Table~\ref {tab:text_detection}. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Offensive ASCII detection F1-score by model, comparing text input versus image input across GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{4}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:f1_scores}{{2}{4}{Offensive ASCII detection F1-score by model, comparing text input versus image input across GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Statistical significance of recognition accuracy improvement after image-based rerouting, evaluated by both paired t-test and Wilcoxon signed-rank test. \textbf  {[PLACEHOLDER: fill in values from results]}}}{4}{table.caption.5}\protected@file@percent }
-\newlabel{tab:significance}{{3}{4}{Statistical significance of recognition accuracy improvement after image-based rerouting, evaluated by both paired t-test and Wilcoxon signed-rank test. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{4}{section.5}\protected@file@percent }
+\newlabel{tab:modes}{{1}{3}{ASCII art construction modes (L1--L8). Modes L5 and L8 embed semantically positive words as fill characters, making character-level content appear benign}{table.caption.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Resolution reduction.}{3}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}VLM Evaluation}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Ground Truth and Detection Metric}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Statistical Analysis}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Threshold estimation.}{3}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Cross-language comparison.}{4}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Model--mode interaction.}{4}{section*.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Multiple comparisons.}{4}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Findings}{4}{section.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Model performance on ASCII art recognition. Results are shown for both text and image input modes across kaomoji and multiline subgroups, separated by offensive and non-offensive labels.}}{4}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:model_performance}{{1}{4}{Model performance on ASCII art recognition. Results are shown for both text and image input modes across kaomoji and multiline subgroups, separated by offensive and non-offensive labels}{figure.caption.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Detection performance of LLMs on improper ASCII content using \textbf  {text} input. Accuracy measures the proportion of total predictions that are correct. Precision reflects the proportion of predicted improper ASCII samples that are actually improper (i.e., it penalizes false positives). Recall quantifies the proportion of actual improper ASCII samples correctly identified (i.e., it penalizes false negatives). F1-score is the harmonic mean of precision and recall, $F_1 = 2 \times \frac  {\text  {Precision} \times \text  {Recall}}{\text  {Precision} + \text  {Recall}}$, offering a balanced measure when both false positives and false negatives matter. Higher values indicate the model is both accurate and comprehensive in detecting offensive content. \textbf  {[PLACEHOLDER: fill in values from results]}}}{5}{table.caption.12}\protected@file@percent }
+\newlabel{tab:text_detection}{{2}{5}{Detection performance of LLMs on improper ASCII content using \textbf {text} input. Accuracy measures the proportion of total predictions that are correct. Precision reflects the proportion of predicted improper ASCII samples that are actually improper (i.e., it penalizes false positives). Recall quantifies the proportion of actual improper ASCII samples correctly identified (i.e., it penalizes false negatives). F1-score is the harmonic mean of precision and recall, $F_1 = 2 \times \frac {\text {Precision} \times \text {Recall}}{\text {Precision} + \text {Recall}}$, offering a balanced measure when both false positives and false negatives matter. Higher values indicate the model is both accurate and comprehensive in detecting offensive content. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Detection performance of LLMs on improper ASCII content using \textbf  {image} input. Metrics are defined as in Table~\ref {tab:text_detection}. \textbf  {[PLACEHOLDER: fill in values from results]}}}{5}{table.caption.13}\protected@file@percent }
+\newlabel{tab:image_detection}{{3}{5}{Detection performance of LLMs on improper ASCII content using \textbf {image} input. Metrics are defined as in Table~\ref {tab:text_detection}. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Offensive ASCII detection F1-score by model, comparing text input versus image input across GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{5}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:f1_scores}{{2}{5}{Offensive ASCII detection F1-score by model, comparing text input versus image input across GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Statistical significance of recognition accuracy improvement after image-based rerouting, evaluated by both paired t-test and Wilcoxon signed-rank test. \textbf  {[PLACEHOLDER: fill in values from results]}}}{5}{table.caption.15}\protected@file@percent }
+\newlabel{tab:significance}{{4}{5}{Statistical significance of recognition accuracy improvement after image-based rerouting, evaluated by both paired t-test and Wilcoxon signed-rank test. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{5}{section.5}\protected@file@percent }
 \citation{openai2025chatgpt}
 \bibdata{custom}
 \bibcite{alon2023detecting}{{1}{2023}{{Alon and Kamfonas}}{{}}}
 \bibcite{anthropic2025claude}{{2}{2025}{{Anthropic}}{{}}}
-\bibcite{asciiemoticons_nd}{{3}{n.d.}{{ASCII-Emoticons}}{{}}}
-\bibcite{bayani2023testing}{{4}{2023}{{Bayani}}{{}}}
-\bibcite{berezin2024read}{{5}{2024}{{Berezin et~al.}}{{Berezin, Farahbakhsh, and Crespi}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Bootstrap distribution of mean recognition improvement for GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. Each distribution shows the resampled mean gain from text to image input, with 90\% confidence intervals marked. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{5}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:bootstrap}{{3}{5}{Bootstrap distribution of mean recognition improvement for GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. Each distribution shows the resampled mean gain from text to image input, with 90\% confidence intervals marked. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.6}{}}
-\bibcite{chandraumakantham2024multimodal}{{6}{2024}{{Chandraumakantham et~al.}}{{Chandraumakantham, Gowtham, Zakariah, and Almazyad}}}
-\bibcite{emoticons_nd}{{7}{n.d.}{{Emoticons}}{{}}}
-\bibcite{google2025gemini}{{8}{2025}{{Google}}{{}}}
-\bibcite{jia2024visual}{{9}{2024}{{Jia et~al.}}{{Jia, Yue, Huang, Qin, Liu, Lin, and You}}}
-\bibcite{jiang2024artprompt}{{10}{2024}{{Jiang et~al.}}{{Jiang, Xu, Niu, Xiang, Ramasubramanian, Li, and Poovendran}}}
-\bibcite{lu2025financial}{{11}{2025}{{Lu and Huo}}{{}}}
-\bibcite{ogrady2008automatic}{{12}{2008}{{O'Grady and Rickard}}{{}}}
-\bibcite{openai2023gpt4}{{13}{2023}{{OpenAI}}{{}}}
-\bibcite{openai2025chatgpt}{{14}{2025}{{OpenAI}}{{}}}
-\bibcite{ortiz2024chatgpt}{{15}{2024}{{Ortiz}}{{}}}
-\bibcite{pixelplanetz2025}{{16}{2025}{{PIXELPLANETZ}}{{}}}
-\bibcite{sah2025advancing}{{17}{2025}{{Sah et~al.}}{{Sah, Shaw, Lian, Baig, Wen, Jiang, Yang, and Yang}}}
-\bibcite{wang2025text}{{18}{2025}{{Wang et~al.}}{{Wang, Hooi, Wang, Yang, Huang, and Cai}}}
-\bibcite{listofemoticons2025}{{19}{2025}{{Wikipedia}}{{}}}
-\bibcite{wu2024experimental}{{20}{2024}{{Wu et~al.}}{{Wu, Tang, Yang, Hao, Lai, and Liu}}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Example of Toxic ASCII Art}{6}{appendix.A}\protected@file@percent }
-\newlabel{app:a}{{A}{6}{Example of Toxic ASCII Art}{appendix.A}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Toxic multiline ASCII art sample. Content has been redacted for ethical presentation. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{6}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:toxic_multiline}{{4}{6}{Toxic multiline ASCII art sample. Content has been redacted for ethical presentation. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Toxic kaomoji sample. Characters form an offensive symbol. Content is shown as-is for research documentation purposes.}}{6}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:toxic_kaomoji}{{5}{6}{Toxic kaomoji sample. Characters form an offensive symbol. Content is shown as-is for research documentation purposes}{figure.caption.11}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Sample Data}{6}{appendix.B}\protected@file@percent }
-\newlabel{app:b}{{B}{6}{Sample Data}{appendix.B}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Test Result}{6}{appendix.C}\protected@file@percent }
-\newlabel{app:c}{{C}{6}{Test Result}{appendix.C}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Prompts}{6}{appendix.D}\protected@file@percent }
-\newlabel{app:d}{{D}{6}{Prompts}{appendix.D}{}}
-\@writefile{toc}{\contentsline {paragraph}{Prompt D1: Text-based input}{6}{section*.14}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Sample entries from the dataset. The \textit  {Type} column indicates whether the entry is a kaomoji or multiline ASCII art. The \textit  {Offensive} column is a binary label (1 = offensive, 0 = benign). \textbf  {[PLACEHOLDER: fill in sample rows from dataset]}}}{7}{table.caption.12}\protected@file@percent }
-\newlabel{tab:sample_data}{{4}{7}{Sample entries from the dataset. The \textit {Type} column indicates whether the entry is a kaomoji or multiline ASCII art. The \textit {Offensive} column is a binary label (1 = offensive, 0 = benign). \textbf {[PLACEHOLDER: fill in sample rows from dataset]}}{table.caption.12}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Sample entries from \texttt  {test\_result.xlsx}. Coverage, Hallucination, and Improper Detection are binary scores (0 or 1). \textbf  {[PLACEHOLDER: fill in sample rows from test\_result.xlsx]}}}{7}{table.caption.13}\protected@file@percent }
-\newlabel{tab:test_result}{{5}{7}{Sample entries from \texttt {test\_result.xlsx}. Coverage, Hallucination, and Improper Detection are binary scores (0 or 1). \textbf {[PLACEHOLDER: fill in sample rows from test\_result.xlsx]}}{table.caption.13}{}}
-\@writefile{toc}{\contentsline {paragraph}{Prompt D2: Image-based input}{7}{section*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {E}Codes}{7}{appendix.E}\protected@file@percent }
-\newlabel{app:e}{{E}{7}{Codes}{appendix.E}{}}
-\@writefile{toc}{\contentsline {paragraph}{Code E1: Bootstrapping}{7}{section*.16}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Code E2: Figure 3 Generation}{7}{section*.17}\protected@file@percent }
-\gdef \@abspage@last{7}
+\bibcite{bayani2023testing}{{3}{2023}{{Bayani}}{{}}}
+\bibcite{berezin2024read}{{4}{2024}{{Berezin et~al.}}{{Berezin, Farahbakhsh, and Crespi}}}
+\bibcite{chandraumakantham2024multimodal}{{5}{2024}{{Chandraumakantham et~al.}}{{Chandraumakantham, Gowtham, Zakariah, and Almazyad}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Bootstrap distribution of mean recognition improvement for GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. Each distribution shows the resampled mean gain from text to image input, with 90\% confidence intervals marked. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{6}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:bootstrap}{{3}{6}{Bootstrap distribution of mean recognition improvement for GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. Each distribution shows the resampled mean gain from text to image input, with 90\% confidence intervals marked. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.16}{}}
+\bibcite{google2025gemini}{{6}{2025}{{Google}}{{}}}
+\bibcite{jia2024visual}{{7}{2024}{{Jia et~al.}}{{Jia, Yue, Huang, Qin, Liu, Lin, and You}}}
+\bibcite{jiang2024artprompt}{{8}{2024}{{Jiang et~al.}}{{Jiang, Xu, Niu, Xiang, Ramasubramanian, Li, and Poovendran}}}
+\bibcite{ogrady2008automatic}{{9}{2008}{{O'Grady and Rickard}}{{}}}
+\bibcite{openai2025chatgpt}{{10}{2025}{{OpenAI}}{{}}}
+\bibcite{wang2025text}{{11}{2025}{{Wang et~al.}}{{Wang, Hooi, Wang, Yang, Huang, and Cai}}}
+\bibcite{wu2024experimental}{{12}{2024}{{Wu et~al.}}{{Wu, Tang, Yang, Hao, Lai, and Liu}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Example of Toxic ASCII Art}{7}{appendix.A}\protected@file@percent }
+\newlabel{app:a}{{A}{7}{Example of Toxic ASCII Art}{appendix.A}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Toxic multiline ASCII art sample. Content has been redacted for ethical presentation. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{7}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:toxic_multiline}{{4}{7}{Toxic multiline ASCII art sample. Content has been redacted for ethical presentation. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Toxic kaomoji sample. Characters form an offensive symbol. Content is shown as-is for research documentation purposes.}}{7}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:toxic_kaomoji}{{5}{7}{Toxic kaomoji sample. Characters form an offensive symbol. Content is shown as-is for research documentation purposes}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Sample Data}{7}{appendix.B}\protected@file@percent }
+\newlabel{app:b}{{B}{7}{Sample Data}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Test Result}{7}{appendix.C}\protected@file@percent }
+\newlabel{app:c}{{C}{7}{Test Result}{appendix.C}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {D}Prompts}{7}{appendix.D}\protected@file@percent }
+\newlabel{app:d}{{D}{7}{Prompts}{appendix.D}{}}
+\@writefile{toc}{\contentsline {paragraph}{Prompt D1: Text-based input}{7}{section*.24}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Prompt D2: Image-based input}{7}{section*.25}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Sample entries from the dataset. The \textit  {Type} column indicates whether the entry is a kaomoji or multiline ASCII art. The \textit  {Offensive} column is a binary label (1 = offensive, 0 = benign). \textbf  {[PLACEHOLDER: fill in sample rows from dataset]}}}{8}{table.caption.22}\protected@file@percent }
+\newlabel{tab:sample_data}{{5}{8}{Sample entries from the dataset. The \textit {Type} column indicates whether the entry is a kaomoji or multiline ASCII art. The \textit {Offensive} column is a binary label (1 = offensive, 0 = benign). \textbf {[PLACEHOLDER: fill in sample rows from dataset]}}{table.caption.22}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Sample entries from \texttt  {test\_result.xlsx}. Coverage, Hallucination, and Improper Detection are binary scores (0 or 1). \textbf  {[PLACEHOLDER: fill in sample rows from test\_result.xlsx]}}}{8}{table.caption.23}\protected@file@percent }
+\newlabel{tab:test_result}{{6}{8}{Sample entries from \texttt {test\_result.xlsx}. Coverage, Hallucination, and Improper Detection are binary scores (0 or 1). \textbf {[PLACEHOLDER: fill in sample rows from test\_result.xlsx]}}{table.caption.23}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Codes}{8}{appendix.E}\protected@file@percent }
+\newlabel{app:e}{{E}{8}{Codes}{appendix.E}{}}
+\@writefile{toc}{\contentsline {paragraph}{Code E1: Bootstrapping}{8}{section*.26}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Code E2: Figure 3 Generation}{8}{section*.27}\protected@file@percent }
+\gdef \@abspage@last{8}

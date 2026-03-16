@@ -219,6 +219,12 @@ INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\public\cm\cmmi10.tfm
 INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\public\cm\cmsy10.tfm
 INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\public\cm\cmex10.tfm
 INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\public\latex-fonts\lasy10.tfm
+INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\public\inconsolata\t1-zi4r-0.tfm
+INPUT D:\personal\Downloads\useful_app\MikTex\tex\latex\psnfss\ts1ptm.fd
+INPUT D:\personal\Downloads\useful_app\MikTex\tex\latex\psnfss\ts1ptm.fd
+INPUT D:\personal\Downloads\useful_app\MikTex\tex\latex\psnfss\ts1ptm.fd
+INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\adobe\times\ptmr8c.tfm
+INPUT D:\personal\Downloads\useful_app\MikTex\fonts\vf\adobe\times\ptmr8c.vf
 INPUT .\img\figure_1.png
 INPUT .\img\figure_1.png
 INPUT .\img\figure_1.png
@@ -247,7 +253,6 @@ INPUT acl_latex.bbl
 INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\adobe\times\ptmri8t.tfm
 INPUT D:\personal\Downloads\useful_app\MikTex\fonts\vf\adobe\times\ptmri8t.vf
 INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\adobe\times\ptmri8r.tfm
-INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\public\inconsolata\t1-zi4r-0.tfm
 INPUT D:\personal\Downloads\useful_app\MikTex\fonts\tfm\public\inconsolata\t1-zi4r-0.tfm
 INPUT acl_latex.aux
 INPUT .\acl_latex.out

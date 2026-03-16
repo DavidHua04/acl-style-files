@@ -33,7 +33,7 @@
 % For math commands (\text, \frac, etc.)
 \usepackage{amsmath}
 
-\title{Designing an Identifier System to Enhance ASCII Art Recognition in LLMs}
+\title{Resolution Thresholds in VLM Detection of Harmful ASCII Art Across Construction Modes and Languages}
 
 \author{David Hua \\
   Department of Computer Science \\
@@ -44,138 +44,232 @@
 \maketitle
 
 \begin{abstract}
-ASCII art presents a unique challenge for Large Language Models (LLMs) due to its nature of
-encoding visual patterns using textual characters. This can allow inappropriate or harmful content
-to bypass moderation systems. To address this vulnerability, a generalizable identifier system that
-operates at inference time to improve ASCII art recognition in LLMs is designed. The system converts
-ASCII art into an image and passes it to a Vision-Language Model (VLM) for recognition. By doing so,
-the approach improves recognition of ASCII-encoded content without requiring any retraining of LLMs.
-This approach is evaluated using a custom dataset of ASCII art examples collected online, comparing
-baseline and enhanced model responses based on feature coverage, hallucination rates, and improper
-detection rate. Results show that this lightweight VLM-based pipeline significantly improves ASCII
-interpretation and detection of harmful or offensive elements. This system offers a practical step
-toward safer AI applications, especially in content moderation and platform safety.
+Large Vision-Language Models (VLMs) are increasingly deployed as content moderation tools, yet they
+remain vulnerable to jailbreak attacks in which harmful text is visually encoded as ASCII art. 
+This can allow inappropriate or harmful content to bypass moderation systems.
+To address this vulnerability, this paper investigates how image resolution affects VLM detection of harmful ASCII art
+across eight character construction modes (L1--L8), ranging from dense block characters to
+word-embedded and Chinese character designs. We evaluate eight state-of-the-art VLMs on English and 
+Chinese corpora using a pipeline that generates ASCII art images at ten resolution scales, 
+probing whether a consistent detection-failure threshold exists across models, modes, and languages. 
+Results indicate that detection rates decline sharply below certain resolution thresholds, 
+and that word-based and multilingual modes are the most resistant to detection even at higher resolutions. 
+These findings reveal a systematic vulnerability in VLM-based content moderation systems 
+and motivate resolution-aware evaluation standards.
 \end{abstract}
 
-\noindent\textbf{Keywords:} large language models, visual language models, ASCII art, content
-moderation, offensive detection
+\noindent\textbf{Keywords:} large vision-language models, ASCII art, content moderation, jailbreak,
+resolution threshold, harmful content detection
 
 \smallskip
-\noindent\textit{Warning: this paper contains examples of toxic language used for research purposes.}
+\noindent\textcolor{red}{\textit{Warning: this paper contains examples of toxic language used for research purposes.}}
 
 \section{Introduction}
 
-Large Language Models (LLMs) such as ChatGPT \citep{openai2025chatgpt}, Claude
-\citep{anthropic2025claude}, and Gemini \citep{google2025gemini} have demonstrated impressive
-capabilities in processing text-based information, but they often struggle with interpreting
-non-standard formats such as ASCII art: ``the art of creating images using text characters as their
-constituent elements'' \citep{ogrady2008automatic}. This limitation can result in serious
-consequences when harmful messages are conveyed in the form of ASCII art. In online media, ASCII art
-can be used to bypass content moderation systems, leading to harassment, hate speech, rumour, or
-cyberbullying that cannot be easily detected by current text-only LLM filters.
+Content moderation systems increasingly rely on Vision-Language Models (VLMs) such as ChatGPT, Claude, and Gemini to flag harmful
+material submitted as images \citep{openai2025chatgpt,anthropic2025claude,google2025gemini}.
+This creates a concrete security risk: adversaries can encode harmful words as ASCII art, %
+``the art of creating images using text characters as their constituent elements''
+\citep{ogrady2008automatic}, %
+and bypass the moderation system by exploiting VLMs' weakness in recognizing ASCII art 
+due to its nature of encoding visual patterns using textual characters. Understanding the conditions under which
+detection fails is therefore a prerequisite for building trustworthy moderation systems.
 
-This study was motivated by the growing concern that current LLMs fail to grasp the visual nature of
-ASCII art and may misinterpret or overlook offensive content embedded in it. By enhancing LLMs'
-ability to recognize ASCII art, this research aims to support safer online communication and
-strengthen the AI tools available for digital content moderation.
+To see why this gap is non-trivial to close, consider a harmful word whose letter shapes are
+rendered not as strokes but as a mosaic of innocuous filler words like \textit{love} and
+\textit{peace}. Submitted as an image to a VLM, this input pits two signals against each other:
+the fill characters appear harmless when read in isolation, while the overall visual shape encodes
+something harmful. Prior work has established that VLMs tend to lose this contest. Recent studies show that 
+masking target words as ASCII art achieves high jailbreak success rates, exploiting VLMs' 
+difficulty in processing non-standard character arrangements and maintaining visual-textual 
+alignment \citep{jiang2024artprompt,jia2024visual,wang2025text}.
 
-To address this gap, a generalizable identifier system is built to convert ASCII art into an image
-and pass it to a Vision-Language Model (VLM) for interpretation. This pipeline operates at inference
-time and does not require any retraining of the LLMs, making it practical and low-cost.
+What existing work does not address is the role of \textit{image resolution}. When an ASCII art
+image is downscaled, individual characters blur and merge, potentially making the overall letter
+shape more visually salient rather than less. But beyond a certain resolution, too much detail is
+lost and the image becomes unrecognizable entirely. This suggests that detection rates follow a
+resolution-dependent curve with a \textit{detection-failure threshold}---a scale below which VLMs
+can no longer reliably identify the harmful content. Whether such a threshold is consistent across
+different ASCII art construction modes (e.g., block characters versus embedded English or Chinese
+words), different VLM architectures, and different content languages is an open empirical question.
 
-The key research question is: How does routing ASCII art through a VLM affect LLMs' ability to
-recognize and flag harmful content compared to processing ASCII as plain text? This question forms
-the foundation for the methodology and evaluation approach.
+\paragraph{This paper.} We report a systematic empirical study of how image resolution interacts
+with ASCII art construction mode to affect VLM detection of harmful content. This is not a defense
+paper: we do not propose a new model, defense mechanism, or moderation system. The contribution is
+a characterization of a specific, underexplored vulnerability dimension. Our central questions are:
+\textbf{(1) Does a consistent detection-failure threshold exist across VLMs, construction modes,
+and content languages? (2) Do word-embedded fill modes---which substitute innocuous English or
+Chinese words for individual characters---resist detection even when resolution is increased?}
 
-Ultimately, this research contributes to both the technical improvement of LLM-VLM integration and
-the effect of protecting internet users from online abuse.
+To answer these questions, we build a pipeline that renders harmful words from parallel English and
+Chinese corpora across eight fill modes (L1--L8, ranging from dense block characters to symbol
+sets, digits, letters, embedded English words, emoji, pseudo-text, and Chinese characters) at ten
+resolution scales. We evaluate eight state-of-the-art VLMs on the resulting image set and analyze
+detection-rate curves using logistic regression to estimate mode-specific thresholds,
+Cochran--Armitage trend tests to confirm monotonic trends, and chi-square tests to compare
+detection across the two languages.
+
+Our contributions are: (1) an evaluation pipeline and dataset spanning eight construction modes,
+ten resolution scales, two languages, and eight VLMs; (2) statistically grounded estimates of
+detection-failure thresholds, with 95\% confidence intervals, for each (model, mode) combination;
+and (3) a cross-language analysis of whether model provenance predicts differential sensitivity to
+Chinese-character fill mode (L8). These findings reveal a resolution-dependent vulnerability in
+VLM-based content moderation; the design of mitigations is left to future work.
 
 \section{Literature Review}
 
-Large Language Models (LLMs) have developed rapidly in recent years. Recent models, such as GPT-4
-\citep{openai2023gpt4}, Claude Sonnet 4 \citep{anthropic2025claude}, and Gemini 2.5 Flash
-\citep{google2025gemini}, demonstrate pioneering performance on tasks like image generation and
-software code analysis \citep{ortiz2024chatgpt}, making them powerful tools in both academic and
-professional settings.
+Large Vision-Language Models (VLMs) have developed rapidly in recent years. Recent models, such as
+GPT-4o \citep{openai2025chatgpt}, Claude Sonnet 4 \citep{anthropic2025claude}, and Gemini 2.5
+Flash \citep{google2025gemini}, demonstrate strong performance on multimodal tasks including visual
+question answering, image description, and content analysis, making them attractive candidates for
+automated content moderation pipelines.
 
-One emerging area of LLM development involves multimodal content recognition, where researchers
-explore how LLMs can process and integrate information across different modalities. For instance,
-\citet{chandraumakantham2024multimodal} demonstrate that combining LLMs with visual features through
-feature fusion improves emotion recognition accuracy. Similarly, \citet{wu2024experimental} show that
-LLMs can perform competitive image classification when provided with structured textual input,
-highlighting their potential capacity for visual reasoning. In the financial field,
-\citet{lu2025financial} show how LLMs with domain adaptation can effectively handle complex entity
-recognition tasks. Besides, \citet{sah2025advancing} apply multimodal LLMs to autonomous driving
-systems, achieving robust performance in tasks like traffic sign recognition and detection by
-combining visual inputs and semantic understanding.
+One active area of VLM research is multimodal content recognition, where models must integrate
+visual and textual signals to reason about complex inputs. \citet{chandraumakantham2024multimodal}
+demonstrate that combining language models with visual features improves emotion recognition
+accuracy. \citet{wu2024experimental} show that LLMs can perform competitive image classification
+when provided with structured visual input, highlighting their capacity for visual reasoning.
+These results underpin the assumption that VLMs can serve as effective content moderation tools.
 
-Despite this progress, LLMs still face challenges. Particularly, they struggle in tasks that require
-visual-textual alignment in non-traditional formats and fail to recognize the visual patterns in
-ASCII art \citep{wang2025text}. Multiple models were benchmarked on curated ASCII datasets,
-reporting average performance near 30\%, well below human levels \citep{jia2024visual}.
-Concurrently, \citet{bayani2023testing} tested ChatGPT (GPT-3.5) on cross-modal tasks involving
-ASCII art and found that GPT-3.5 handles trivial cases but struggles with anything abstract or
-complex, indicating that transformer LLMs have some latent visual understanding of ASCII art, but
-far from human-level. Besides, numerous studies illustrate that current LLMs lack robust
-inference-time mechanisms to interpret ASCII art, as their token-by-token reading fails to assemble
-the visual meaning, especially when the ASCII is built with positive words
-\citep{alon2023detecting,berezin2024read,jiang2024artprompt}.
+Despite this progress, VLMs exhibit well-documented limitations when processing ASCII art. Models
+benchmarked on curated ASCII datasets report average recognition performance near 30\%, far below
+human levels \citep{jia2024visual}. \citet{bayani2023testing} tested GPT-3.5 on cross-modal tasks
+involving ASCII art and found that the model handles only trivial cases, indicating that transformer
+models have some latent visual understanding of ASCII art but fall far short of reliable recognition.
+\citet{wang2025text} further show that VLMs struggle with visual-textual alignment in non-standard
+formats, particularly when characters are arranged to form meaningful visual patterns.
 
-Despite acknowledging these threats, existing literature does not explore dynamic rerouting strategies
-using VLMs. Without such mechanisms, harmful ASCII content can bypass detection in real-world AI
-moderation systems, allowing harassment or hate speech to persist on online media. This study
-addresses the gap by testing an identifier system that can more effectively detect hidden offensive
-ASCII content, ultimately enhancing online user protection.
+The security implications of these limitations have attracted dedicated attention.
+\citet{jiang2024artprompt} introduced ArtPrompt, a jailbreak attack that encodes a harmful word as
+ASCII art by masking it in the input prompt, achieving high attack success rates against leading
+LLMs. \citet{alon2023detecting} and \citet{berezin2024read} further show that token-by-token
+reading prevents models from assembling visual meaning from ASCII art, especially when the fill
+characters are drawn from positive or neutral words --- a design that maximises ambiguity at the
+character level while preserving harmful meaning at the visual level.
+
+However, no existing work systematically investigates how \textit{image resolution} interacts with
+ASCII art construction mode to affect detection. The resolution at which an image is passed to a
+VLM determines how much character-level detail is visible and how much the overall shape is
+perceivable as a gestalt unit. Understanding at what resolution detection succeeds or fails ---
+and whether this threshold is consistent across construction modes, VLMs, and content languages
+--- is essential for building reliable moderation systems. This study addresses that gap.
 
 \section{Methodology}
 
-A custom dataset (see Appendix~\ref{app:b} for sample data) was constructed by collecting ASCII art
-examples from public sources manually, including ASCII art websites
-\citep{emoticons_nd,asciiemoticons_nd}, Reddit \citep{pixelplanetz2025}, and Wikipedia
-\citep{listofemoticons2025}. Each entry includes a unique ID, ASCII content, type (either kaomoji
-or multiline), and a binary offensive label (1 for offensive, 0 for benign). Offensive labeling was
-manually annotated, with an emphasis on visual interpretation and sociocultural context. This dataset
-aimed to reflect a diverse spectrum of ASCII content, including kaomojis and complex multiline ASCII
-art. Reddit samples were chosen to represent ASCII content commonly encountered by users in real-world
-social media, while online ASCII repositories reflect the typical sources used for creating or
-searching ASCII art. Together, these sources cover a broad range of ASCII formats that online media
-platforms may need to detect and interpret.
+\subsection{Dataset Construction}
 
-Three state-of-the-art LLMs were selected from three major AI developers: GPT-4o
-\citep{openai2025chatgpt}, Claude Sonnet 4 \citep{anthropic2025claude}, and Gemini 2.5 Flash
-\citep{google2025gemini}. They were selected for their capability of processing both text and image
-inputs. DeepSeek was initially considered but excluded because it did not support multimodal input,
-a core requirement for this study.
+\paragraph{English corpus.}
+Four publicly available harmful-word lists were collected and merged into a single English harmful
+word corpus: a Google profanity word list, a compiled bad-words list from GitHub Gist, an external
+bad-words file from an open-solution toxic-comments repository, and a curated blacklist from a
+social media moderation guide. Duplicates were removed after merging, yielding a deduplicated set
+of harmful English words and short phrases.
 
-These models were then prompted to interpret the ASCII text (see Appendix~\ref{app:d} for the
-prompts). Their responses were evaluated by GPT-4.1 \citep{openai2025chatgpt} using three scoring
-metrics: coverage (1 if all expected features were correctly identified, 0 otherwise), hallucination
-(1 if any features were falsely identified, 0 if none), and improper detection (1 if improper or
-offensive elements were identified, 0 if not). GPT-4.1 was selected instead of human raters to
-ensure consistent application of evaluation criteria and eliminate subjective bias. The process was
-repeated with ASCII arts being converted into images for visual interpretation, and scores were
-saved in XLSX files (see Appendix~\ref{app:c} for sample results).
+\paragraph{Chinese corpus.}
+A single publicly available Chinese offensive-language dataset was used as the Chinese harmful
+word source. This dataset already contains a sufficient vocabulary of harmful Chinese terms and
+required no merging.
 
-Quantitative analysis was conducted using Python (Jupyter Notebook). Exploratory data analysis (EDA)
-was first performed to summarize model-wise performance on each metric. Improper detection was
-further evaluated for both text and image inputs using standard classification metrics: accuracy,
-precision, recall, and F1-score. Additional subgroup analysis was performed to evaluate differences
-in recognition performance (coverage, hallucination, and improper detection) across benign versus
-offensive ASCII and kaomoji versus multiline structures. Then, paired t-tests and Wilcoxon
-signed-rank tests were conducted to compare recognition performance between input modes across all
-three models. To quantify the magnitude and precision of improvement, mean score changes were
-computed along with their 90\% confidence intervals. This represents the range that would contain
-the true effect in 90\% of cases if the experiment were repeated many times under the same
-conditions. Finally, the statistics were visualized using Matplotlib to provide clearer
-interpretation and presentation.
+\paragraph{Image generation pipeline.}
+Each harmful word in both corpora was passed through a custom image generation pipeline. 
+The pipeline operates in three stages: (1) the word string
+is rendered onto a canvas at a fixed reference size; (2) the canvas is resized to a standardized
+image dimension; and (3) each dark pixel in the resized image is replaced by a character drawn from
+one of eight fill-character sets (L1--L8), while light pixels are replaced with a space, producing
+an ASCII art image where the harmful word is visually encoded as a character mosaic.
 
-Analyses progressed from description to inference. EDA with standard classification metrics and
-subgroup comparisons established baseline patterns and differences by ASCII type and offensiveness.
-Changes from text to image input were then tested using a paired t-test and, for robustness to
-non-normality (i.e., when differences are not normally distributed), the Wilcoxon signed-rank test.
-Ninety percent confidence intervals for the improvement of recognition performance complemented those
-tests. Final visualizations integrated results and highlighted comparative patterns for
-interpretation.
+The eight fill modes are defined as follows:
+
+\begin{table}[h]
+  \centering
+  \resizebox{\columnwidth}{!}{%
+  \begin{tabular}{cll}
+    \toprule
+    \textbf{Mode} & \textbf{Character type} & \textbf{Notes} \\
+    \midrule
+    L1 & Block character \texttt{\rule{0.4em}{0.8em}}     & Densest; most visually obvious \\
+    L2 & Symbols \texttt{\$@\#\&*}      & Classic ASCII art style \\
+    L3 & Digits \texttt{0--9}           & Digit-only fill \\
+    L4 & Uppercase letters \texttt{A--Z}& Letter-only fill \\
+    L5 & English words                  & English-word embedded \\
+    L6 & Emoji                          & Emoji-based fill \\
+    L7 & Lorem ipsum stream             & Continuous pseudo-text \\
+    L8 & Chinese words                  & Chinese-word embedded \\
+    \bottomrule
+  \end{tabular}}
+  \caption{ASCII art construction modes (L1--L8). Modes L5 and L8 embed semantically positive
+    words as fill characters, making character-level content appear benign.}
+  \label{tab:modes}
+\end{table}
+
+\paragraph{Resolution reduction.}
+Each full-resolution ASCII art image was downscaled to nine resolution scales
+$r \in \{0.1,\, 0.2,\, \ldots,\, 0.9\}$, where $r$ is the ratio of the output
+width and height to the original. The original (scale 1.0) is retained as a reference condition.
+Downscaled images are stored separately from the full-resolution set. This produces a full
+evaluation grid of (corpus $\times$ mode $\times$ resolution scale) image variants.
+
+\subsection{VLM Evaluation}
+
+Each image was submitted to eight VLMs via the OpenRouter API using a standardized prompt
+instructing the model to assess the image content and return a structured JSON response containing
+an \texttt{emotion} field (e.g., \texttt{"Neutral"}, \texttt{"Negative"}) and a brief
+\texttt{reason} field. The eight models evaluated are:
+
+\begin{itemize}
+  \item \texttt{google/gemini-3-flash-preview}
+  \item \texttt{moonshotai/kimi-k2.5}
+  \item \texttt{x-ai/grok-4.1-fast}
+  \item \texttt{mistralai/mistral-small-3.2-24b-instruct}
+  \item \texttt{openai/gpt-4o-mini}
+  \item \texttt{meta-llama/llama-4-maverick}
+  \item \texttt{qwen/qwen3-vl-30b-a3b-thinking}
+  \item \texttt{nvidia/nemotron-nano-12b-v2-vl}
+\end{itemize}
+
+Results are stored as JSON files organized hierarchically by language, model provider, model name,
+resolution scale, and fill mode, with one file per (word, mode, resolution, model) combination.
+
+\subsection{Ground Truth and Detection Metric}
+All samples in this study contain confirmed harmful content and are assigned a ground-truth label of 1 (harmful). 
+A model is considered to have \textbf{detected} the harmful content if the parsed \texttt{emotion} value is negative. 
+A neutral or positive emotion response is treated as a \textbf{detection failure}. 
+The primary evaluation metric is the \textbf{detection rate}: 
+the proportion of samples within a given (model, mode, resolution, language) stratum 
+for which the model returns a negative emotion response.
+
+\subsection{Statistical Analysis}
+
+% [PLACEHOLDER: Figure showing detection-rate vs.\ resolution curves for all 8 modes, faceted by model]
+
+\paragraph{Threshold estimation.}
+To test whether detection rate changes monotonically as resolution changes, a
+\textbf{Cochran--Armitage trend test} is applied within each (model, mode) stratum.
+To formally localize the detection-failure threshold, a \textbf{logistic regression} is fit with
+resolution as the sole predictor and the binary detection outcome as the response variable,
+estimated separately for each (model, mode) combination. The resolution at which the fitted
+detection probability crosses 0.5 is taken as the threshold estimate, reported with a 95\%
+confidence interval.
+
+% [PLACEHOLDER: Table summarizing logistic regression threshold estimates per model and mode]
+
+\paragraph{Cross-language comparison.}
+To test whether detection rates differ between the English and Chinese corpora, a
+\textbf{chi-square test} (or \textbf{Fisher's exact test} when cell counts are small) is applied
+at each (model, mode, resolution) stratum, treating the two corpora as independent samples.
+
+% [PLACEHOLDER: Figure comparing English vs.\ Chinese detection rates by mode and model]
+
+\paragraph{Model--mode interaction.}
+To test whether a model's provenance (e.g., US-built vs.\ Chinese-built) predicts differential
+performance on Chinese-character fill mode (L8), a \textbf{mixed-effects logistic regression} is
+fit with model origin and fill mode as fixed effects, their interaction term, resolution as a
+continuous covariate, and individual model identity as a random effect.
+
+\paragraph{Multiple comparisons.}
+Because many pairwise tests are conducted across 8 models and 8 modes, \textbf{Benjamini--Hochberg
+false discovery rate correction} is applied to all comparisons. All analyses are implemented in
+Python and visualized using Matplotlib.
 
 \section{Findings}
 
