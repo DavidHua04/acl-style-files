@@ -430,12 +430,8 @@ against treating the heatmap values as stable summaries.
 At each of the 640 (model, mode, resolution) strata, a chi-square test (or Fisher's exact test
 when any cell count $< 5$) compared detection rates between the English and Chinese corpora.
 Fisher's exact test was used in 503 of 640 strata (78.6\%), reflecting the prevalence of small
-cell counts at low detection rates. The English and Chinese corpora differ in size (12,789 vs.\
-12,759 observations after cleaning) and composition; while the sizes are closely matched here,
-any differences in corpus vocabulary or word difficulty could introduce systematic asymmetries
-in detected proportions that the chi-square and Fisher tests do not adjust for. Results should
-therefore be interpreted as reflecting overall detection-rate differences across the two corpora
-rather than differences attributable solely to language.
+cell counts at low detection rates. Both corpora were randomly sampled to 20 words each, so
+they are equal in size.
 
 After BH correction, only 30 of 640 strata (4.7\%) show a statistically significant difference
 between languages. The significant strata are not concentrated at any particular resolution:
@@ -608,6 +604,12 @@ Third, while the study covers 8 VLMs, all are accessed through a single API prov
 (OpenRouter), and model behavior may differ across deployment environments or API versions.
 The models evaluated represent a snapshot of available capabilities at the time of data
 collection and may not reflect subsequent updates or fine-tuning.
+
+Fourth, the harmful word corpora, while drawn from established public sources, may not fully
+represent the diversity of harmful content encountered in real-world moderation scenarios. Both
+corpora were randomly sampled to 20 words each, so they are equal in size; however, the sampled
+words differ in composition and may not reflect the full range of harmful vocabulary in either
+language, which limits the generalisability of the cross-language comparison.
 
 Finally, this study characterizes a vulnerability but does not propose or evaluate defenses.
 The detection-failure thresholds reported here identify where current VLMs fail, but the design
