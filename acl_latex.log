@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.1)  15 MAR 2026 22:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.3.1)  13 APR 2026 13:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -483,107 +483,150 @@ Underfull \hbox (badness 1803) in paragraph at lines 61--63
 
 
 ]
-Overfull \hbox (0.52716pt too wide) in paragraph at lines 104--111
-\T1/ptm/m/n/10.95 (-20) sion to es-ti-mate mode-specific thresh-olds, Cochran--
- []
-
-
-Underfull \hbox (badness 1748) in paragraph at lines 134--141
+Underfull \hbox (badness 1748) in paragraph at lines 134--140
 []\T1/ptm/m/n/10.95 (+20) Despite this progress, VLMs ex-hibit well-
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 1389) in paragraph at lines 141--147
+[]\T1/ptm/m/n/10.95 (+20) These fail-ure modes are con-sis-tent with a
+ []
 
- [2]
+[2]
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 199.
+(Font)              scaled to size 10.95pt on input line 206.
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--211
+Underfull \hbox (badness 10000) in paragraph at lines 213--218
  []\T1/ptm/b/n/10.95 (+20) Resolution re-duc-tion.[] \T1/ptm/m/n/10.95 (+20) Each full-resolution
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 206--211
+Underfull \hbox (badness 1533) in paragraph at lines 213--218
 \T1/ptm/m/n/10.95 (+20) scales $\OML/cmm/m/it/10.95 r \OMS/cmsy/m/n/10.95 2 f\OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ;  \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 2\OML/cmm/m/it/10.95 ;  [] ;  \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/10.95 9\OMS/cmsy/m/n/10.95 g$\T1/ptm/m/n/10.95 (+20) , where $\OML/cmm/m/it/10.95 r$ \T1/ptm/m/n/10.95 (+20) is
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 220.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 227.
 (D:\personal\Downloads\useful_app\MikTex\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (21.81355pt too wide) in paragraph at lines 223--224
+Overfull \hbox (21.81355pt too wide) in paragraph at lines 230--231
 []\T1/zi4/m/n/10.95 mistralai/mistral-small-3.2-24b-instruct 
  []
 
 [3]
-<img/figure_1.png, id=139, 327.3831pt x 180.675pt>
-File: img/figure_1.png Graphic file (type png)
-<use img/figure_1.png>
-Package pdftex.def Info: img/figure_1.png  used on input line 305.
-(pdftex.def)             Requested size: 219.08614pt x 120.91101pt.
+Underfull \vbox (badness 3471) has occurred while \output is active []
 
-Overfull \hbox (47.20944pt too wide) in paragraph at lines 325--342
- [][] 
+<img/fig_overall_heatmap.png, id=156, 1038.7608pt x 570.4512pt>
+File: img/fig_overall_heatmap.png Graphic file (type png)
+<use img/fig_overall_heatmap.png>
+Package pdftex.def Info: img/fig_overall_heatmap.png  used on input line 313.
+(pdftex.def)             Requested size: 219.08614pt x 120.31184pt.
+<img/fig_detection_rate_vs_resolution.png, id=158, 1473.3444pt x 649.4664pt>
+File: img/fig_detection_rate_vs_resolution.png Graphic file (type png)
+<use img/fig_detection_rate_vs_resolution.png>
+Package pdftex.def Info: img/fig_detection_rate_vs_resolution.png  used on input line 324.
+(pdftex.def)             Requested size: 455.24411pt x 200.67844pt.
+ [4 <./img/fig_overall_heatmap.png>]
+<img/fig_cochran_armitage.png, id=172, 1043.5788pt x 570.4512pt>
+File: img/fig_cochran_armitage.png Graphic file (type png)
+<use img/fig_cochran_armitage.png>
+Package pdftex.def Info: img/fig_cochran_armitage.png  used on input line 357.
+(pdftex.def)             Requested size: 219.08614pt x 119.75476pt.
+
+Underfull \hbox (badness 2351) in paragraph at lines 362--362
+[]\T1/ptm/m/n/10 (+20) Figure 3: |Cochran--Armitage z-statistics for the
+ []
+
+[5 <./img/fig_detection_rate_vs_resolution.png> <./img/fig_cochran_armitage.png>]
+<img/fig_threshold_heatmap.png, id=183, 1160.6562pt x 570.4512pt>
+File: img/fig_threshold_heatmap.png Graphic file (type png)
+<use img/fig_threshold_heatmap.png>
+Package pdftex.def Info: img/fig_threshold_heatmap.png  used on input line 416.
+(pdftex.def)             Requested size: 219.08614pt x 107.6731pt.
+<img/fig_threshold_errorbars.png, id=184, 1438.173pt x 569.9694pt>
+File: img/fig_threshold_errorbars.png Graphic file (type png)
+<use img/fig_threshold_errorbars.png>
+Package pdftex.def Info: img/fig_threshold_errorbars.png  used on input line 426.
+(pdftex.def)             Requested size: 455.24411pt x 180.41971pt.
+<img/fig_language_comparison.png, id=185, 1443.9546pt x 648.9846pt>
+File: img/fig_language_comparison.png Graphic file (type png)
+<use img/fig_language_comparison.png>
+Package pdftex.def Info: img/fig_language_comparison.png  used on input line 452.
+(pdftex.def)             Requested size: 455.24411pt x 204.60948pt.
+ [6 <./img/fig_threshold_heatmap.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<img/fig_L8_origin_interaction.png, id=199, 570.933pt x 353.6412pt>
+File: img/fig_L8_origin_interaction.png Graphic file (type png)
+<use img/fig_L8_origin_interaction.png>
+Package pdftex.def Info: img/fig_L8_origin_interaction.png  used on input line 509.
+(pdftex.def)             Requested size: 219.08614pt x 135.70169pt.
+<img/fig_L5_origin_interaction.png, id=200, 570.933pt x 353.6412pt>
+File: img/fig_L5_origin_interaction.png Graphic file (type png)
+<use img/fig_L5_origin_interaction.png>
+Package pdftex.def Info: img/fig_L5_origin_interaction.png  used on input line 518.
+(pdftex.def)             Requested size: 219.08614pt x 135.70169pt.
+ [7 <./img/fig_threshold_errorbars.png>]
+Underfull \vbox (badness 4084) has occurred while \output is active []
+
+ [8 <./img/fig_language_comparison.png> <./img/fig_L8_origin_interaction.png> <./img/fig_L5_origin_interaction.png>]
+Underfull \hbox (badness 1533) in paragraph at lines 585--592
+\T1/ptm/m/n/10.95 (+20) VLM's de-tec-tion thresh-olds. Sec-ond, word-
  []
 
 
-Overfull \hbox (47.20944pt too wide) in paragraph at lines 348--359
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 593--596
+[]\T1/ptm/m/n/10.95 (+20) Future work should in-ves-ti-gate whether
  []
 
-[4 <./img/figure_1.png>]
-Overfull \hbox (61.80536pt too wide) in paragraph at lines 381--395
- [][] 
- []
-
-
-Underfull \hbox (badness 2478) in paragraph at lines 415--419
-[]\T1/ptm/m/n/10.95 (+20) In sum-mary, the identifier-based rerout-ing
- []
-
-
-Underfull \vbox (badness 3428) has occurred while \output is active []
-
- [5] (acl_latex.bbl
-Underfull \hbox (badness 1038) in paragraph at lines 33--38
+[9] (acl_latex.bbl
+Underfull \hbox (badness 1038) in paragraph at lines 44--49
 []\T1/ptm/m/n/10 (+20) Oruganti Chan-drau-makan-tham, N. Gowtham, Mo-
  []
 
-[6])
+)
+<img/_fuck__ascii.jpg, id=241, 959.585pt x 304.13625pt>
+File: img/_fuck__ascii.jpg Graphic file (type jpg)
+<use img/_fuck__ascii.jpg>
+Package pdftex.def Info: img/_fuck__ascii.jpg  used on input line 650.
+(pdftex.def)             Requested size: 192.79686pt x 61.10461pt.
+ [10 <./img/_fuck__ascii.jpg>]
+Overfull \hbox (36.38747pt too wide) in paragraph at lines 678--678
+ []  \T1/zi4/m/n/10.95 "emotion": "Positive | Negative | Neutral",[] 
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+
+Overfull \hbox (36.38747pt too wide) in paragraph at lines 678--678
+ []  \T1/zi4/m/n/10.95 "reason": "brief explanation, max 30 words"[] 
+ []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (22.54333pt too wide) in paragraph at lines 687--701
+ [][] 
+ []
 
-LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 538.
+[11
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7] [8
-
-] (acl_latex.aux)
+] [12] (acl_latex.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `acl_latex.out' has not changed.
-(rerunfilecheck)             Checksum: F5929DADD7F0B98E478D60D7FE35218C;1735.
+(rerunfilecheck)             Checksum: 892A74B6C6602DDE2F8978F3B01FEC42;3042.
  ) 
 Here is how much of TeX's memory you used:
- 15147 strings out of 467867
- 242033 string characters out of 5420740
- 704662 words of memory out of 5000000
- 43405 multiletter control sequences out of 15000+600000
- 684136 words of font info for 314 fonts, out of 8000000 for 9000
+ 15247 strings out of 467867
+ 244833 string characters out of 5420740
+ 703259 words of memory out of 5000000
+ 43475 multiletter control sequences out of 15000+600000
+ 685818 words of font info for 334 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,10n,93p,1088b,640s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmb8a.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmbi8a.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmri8a.pfb>
-Output written on acl_latex.pdf (8 pages, 204874 bytes).
+ 90i,10n,93p,1088b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmb8a.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/personal/Downloads/useful_app/MikTex/fonts/type1/urw/times/utmri8a.pfb>
+Output written on acl_latex.pdf (12 pages, 1487127 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 69 named destinations out of 1000 (max. 500000)
- 56438 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 345 PDF objects out of 1000 (max. 8388607)
+ 72 named destinations out of 1000 (max. 500000)
+ 56510 words of extra memory for PDF output out of 61914 (max. 10000000)
 

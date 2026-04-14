@@ -138,6 +138,13 @@ models have some latent visual understanding of ASCII art but fall far short of 
 \citet{wang2025text} further show that VLMs struggle with visual-textual alignment in non-standard
 formats, particularly when characters are arranged to form meaningful visual patterns.
 
+These failure modes are consistent with a broader pattern identified by \citet{west2023generative},
+who show that generative models acquire generation capabilities not contingent upon understanding,
+producing outputs that can exceed human-level quality while simultaneously failing at basic
+comprehension tasks that no human expert would miss. Applied to VLMs processing ASCII art, this
+suggests that a model may be capable of producing high-quality image descriptions in general yet
+still fail to parse the structured visual meaning encoded in character mosaics.
+
 The security implications of these limitations have attracted dedicated attention.
 \citet{jiang2024artprompt} introduced ArtPrompt, a jailbreak attack that encodes a harmful word as
 ASCII art by masking it in the input prompt, achieving high attack success rates against leading
@@ -486,6 +493,12 @@ Chinese-built models' detection collapses, possibly because their stronger sensi
 Chinese text causes them to read the semantically benign fill characters and suppress the
 negative affect signal. US/Western-built models, less optimised for Chinese-text reading,
 are less susceptible to this and maintain a stable detection floor.
+
+This interpretation is broadly consistent with evidence that VLMs trained predominantly on
+Western data exhibit systematic performance disparities when processing inputs from other
+cultural and linguistic contexts \citep{bhatia2024globalrg}, suggesting that training-data
+composition shapes not only cultural knowledge but also low-level visual-textual processing
+of non-Latin scripts.
 
 This account is offered as a descriptive hypothesis only. With only two models per origin
 group, no formal statistical test is possible, and alternative explanations cannot be ruled

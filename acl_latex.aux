@@ -5,7 +5,8 @@
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{openai2025chatgpt,anthropic2025claude,google2025gemini}
 \citation{ogrady2008automatic}
-\citation{jiang2024artprompt,jia2024visual,wang2025text}
+\citation{jiang2024artprompt,wang2025text}
+\citation{jia2025asvii_eval}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{This paper.}{1}{section*.1}\protected@file@percent }
 \citation{openai2025chatgpt}
@@ -13,12 +14,13 @@
 \citation{google2025gemini}
 \citation{chandraumakantham2024multimodal}
 \citation{wu2024experimental}
-\citation{jia2024visual}
 \citation{bayani2023testing}
 \citation{wang2025text}
+\citation{west2023generative}
 \citation{jiang2024artprompt}
 \citation{alon2023detecting}
 \citation{berezin2024read}
+\citation{jia2025asvii_eval}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Literature Review}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Methodology}{3}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Dataset Construction}{3}{subsection.3.1}\protected@file@percent }
@@ -31,59 +33,63 @@
 \@writefile{toc}{\contentsline {paragraph}{Resolution reduction.}{3}{section*.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}VLM Evaluation}{3}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Ground Truth and Detection Metric}{3}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Statistical Analysis}{3}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Threshold estimation.}{3}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Statistical Analysis}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Threshold estimation.}{4}{section*.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{Cross-language comparison.}{4}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Model--mode interaction.}{4}{section*.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Multiple comparisons.}{4}{section*.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Multiple comparisons.}{4}{section*.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Aggregate detection rate for each (ASCII fill mode, model) pair, pooled across resolutions and languages. Rows are ordered by mode (L1--L8); columns are the eight evaluated VLMs. Cell shading runs from red (low detection) to green (high detection). The figure makes visible both the mode-level gradient (L1 and L6 highest, L5 lowest) and the model-level gradient (Gemini-3-Flash and Kimi-K2.5 strongest, Mistral-Small weakest).}}{4}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:overall_heatmap}{{1}{4}{Aggregate detection rate for each (ASCII fill mode, model) pair, pooled across resolutions and languages. Rows are ordered by mode (L1--L8); columns are the eight evaluated VLMs. Cell shading runs from red (low detection) to green (high detection). The figure makes visible both the mode-level gradient (L1 and L6 highest, L5 lowest) and the model-level gradient (Gemini-3-Flash and Kimi-K2.5 strongest, Mistral-Small weakest)}{figure.caption.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Findings}{4}{section.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Model performance on ASCII art recognition. Results are shown for both text and image input modes across kaomoji and multiline subgroups, separated by offensive and non-offensive labels.}}{4}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:model_performance}{{1}{4}{Model performance on ASCII art recognition. Results are shown for both text and image input modes across kaomoji and multiline subgroups, separated by offensive and non-offensive labels}{figure.caption.11}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Detection performance of LLMs on improper ASCII content using \textbf  {text} input. Accuracy measures the proportion of total predictions that are correct. Precision reflects the proportion of predicted improper ASCII samples that are actually improper (i.e., it penalizes false positives). Recall quantifies the proportion of actual improper ASCII samples correctly identified (i.e., it penalizes false negatives). F1-score is the harmonic mean of precision and recall, $F_1 = 2 \times \frac  {\text  {Precision} \times \text  {Recall}}{\text  {Precision} + \text  {Recall}}$, offering a balanced measure when both false positives and false negatives matter. Higher values indicate the model is both accurate and comprehensive in detecting offensive content. \textbf  {[PLACEHOLDER: fill in values from results]}}}{5}{table.caption.12}\protected@file@percent }
-\newlabel{tab:text_detection}{{2}{5}{Detection performance of LLMs on improper ASCII content using \textbf {text} input. Accuracy measures the proportion of total predictions that are correct. Precision reflects the proportion of predicted improper ASCII samples that are actually improper (i.e., it penalizes false positives). Recall quantifies the proportion of actual improper ASCII samples correctly identified (i.e., it penalizes false negatives). F1-score is the harmonic mean of precision and recall, $F_1 = 2 \times \frac {\text {Precision} \times \text {Recall}}{\text {Precision} + \text {Recall}}$, offering a balanced measure when both false positives and false negatives matter. Higher values indicate the model is both accurate and comprehensive in detecting offensive content. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.12}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Detection performance of LLMs on improper ASCII content using \textbf  {image} input. Metrics are defined as in Table~\ref {tab:text_detection}. \textbf  {[PLACEHOLDER: fill in values from results]}}}{5}{table.caption.13}\protected@file@percent }
-\newlabel{tab:image_detection}{{3}{5}{Detection performance of LLMs on improper ASCII content using \textbf {image} input. Metrics are defined as in Table~\ref {tab:text_detection}. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Offensive ASCII detection F1-score by model, comparing text input versus image input across GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{5}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:f1_scores}{{2}{5}{Offensive ASCII detection F1-score by model, comparing text input versus image input across GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.14}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Statistical significance of recognition accuracy improvement after image-based rerouting, evaluated by both paired t-test and Wilcoxon signed-rank test. \textbf  {[PLACEHOLDER: fill in values from results]}}}{5}{table.caption.15}\protected@file@percent }
-\newlabel{tab:significance}{{4}{5}{Statistical significance of recognition accuracy improvement after image-based rerouting, evaluated by both paired t-test and Wilcoxon signed-rank test. \textbf {[PLACEHOLDER: fill in values from results]}}{table.caption.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{5}{section.5}\protected@file@percent }
-\citation{openai2025chatgpt}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Detection Rates Across Modes and Models}{4}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Cochran--Armitage Trend Tests}{4}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Detection rate versus resolution scale for all eight ASCII fill modes, faceted by model. The dashed horizontal line marks the 50\% detection threshold. Detection rates decline sharply with decreasing resolution for most model--mode combinations, but the slope and intercept vary substantially across models and modes.}}{5}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:detection_vs_resolution}{{2}{5}{Detection rate versus resolution scale for all eight ASCII fill modes, faceted by model. The dashed horizontal line marks the 50\% detection threshold. Detection rates decline sharply with decreasing resolution for most model--mode combinations, but the slope and intercept vary substantially across models and modes}{figure.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Logistic Regression Threshold Estimates}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Cochran--Armitage z-statistics for the resolution--detection trend in each (mode, model) stratum. Blue indicates a significant negative trend (detection declines as resolution decreases); white indicates no trend; red would indicate a positive trend (detection declines as resolution increases). Cells marked ``0\%'' denote strata where the model never detected the content at any resolution, producing zero variance and an undefined z-statistic.}}{5}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:cochran_armitage}{{3}{5}{Cochran--Armitage z-statistics for the resolution--detection trend in each (mode, model) stratum. Blue indicates a significant negative trend (detection declines as resolution decreases); white indicates no trend; red would indicate a positive trend (detection declines as resolution increases). Cells marked ``0\%'' denote strata where the model never detected the content at any resolution, producing zero variance and an undefined z-statistic}{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Cross-Language Comparison}{6}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Logistic regression 50\% detection threshold $\hat  {r}_{0.5}$ for each (mode, model) stratum. $\hat  {r}_{0.5}$ is the resolution above which the model drops below 50\% detection, so higher values indicate stronger detection. White Cells labeled ``0\%'' correspond to strata where detection was zero at every resolution and the logistic fit failed to converge.}}{6}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:threshold_heatmap}{{4}{6}{Logistic regression 50\% detection threshold $\hat {r}_{0.5}$ for each (mode, model) stratum. $\hat {r}_{0.5}$ is the resolution above which the model drops below 50\% detection, so higher values indicate stronger detection. White Cells labeled ``0\%'' correspond to strata where detection was zero at every resolution and the logistic fit failed to converge}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Model Origin and Word-Embedded Fill Modes (L5 and L8)}{6}{subsection.4.5}\protected@file@percent }
+\citation{bhatia2024globalrg}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Estimated 50\% detection thresholds with 95\% confidence intervals (delta method), faceted by ASCII fill mode. Bars show the point estimate $\hat  {r}_{0.5}$; horizontal lines show CIs. Tight CIs (e.g., Gemini-3-Flash, Kimi-K2.5) reflect strong resolution dependence with abundant transition data; very wide CIs (e.g., Grok-4.1-Fast) reflect strata where resolution is not a meaningful predictor.}}{7}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:threshold_errorbars}{{5}{7}{Estimated 50\% detection thresholds with 95\% confidence intervals (delta method), faceted by ASCII fill mode. Bars show the point estimate $\hat {r}_{0.5}$; horizontal lines show CIs. Tight CIs (e.g., Gemini-3-Flash, Kimi-K2.5) reflect strong resolution dependence with abundant transition data; very wide CIs (e.g., Grok-4.1-Fast) reflect strata where resolution is not a meaningful predictor}{figure.caption.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Multiple Comparisons Summary}{7}{subsection.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces English versus Chinese detection rates by ASCII fill mode and model. Each point represents a (model, mode, resolution) stratum. Points near the diagonal indicate similar detection rates across languages; deviations indicate language-specific performance differences.}}{8}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:language_comparison}{{6}{8}{English versus Chinese detection rates by ASCII fill mode and model. Each point represents a (model, mode, resolution) stratum. Points near the diagonal indicate similar detection rates across languages; deviations indicate language-specific performance differences}{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces L8 (Chinese characters) detection rate as a function of resolution, with models grouped by origin (Chinese-built: Kimi-K2.5, Qwen3-VL; US/Western-built: the remaining six models). Markers show pooled detection rates within each origin group at each resolution.}}{8}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:L8_origin}{{7}{8}{L8 (Chinese characters) detection rate as a function of resolution, with models grouped by origin (Chinese-built: Kimi-K2.5, Qwen3-VL; US/Western-built: the remaining six models). Markers show pooled detection rates within each origin group at each resolution}{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{8}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Resolution as a systematic vulnerability dimension.}{8}{section*.18}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces L5 (English words) detection rate as a function of resolution, with models grouped by origin. Included as a control: L5 is the English word-embedded counterpart to L8, so any L8-specific origin effect should be absent here.}}{8}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:L5_origin}{{8}{8}{L5 (English words) detection rate as a function of resolution, with models grouped by origin. Included as a control: L5 is the English word-embedded counterpart to L8, so any L8-specific origin effect should be absent here}{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {paragraph}{Mode-dependent vulnerability profiles.}{8}{section*.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Model heterogeneity.}{9}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Cross-language effects are minimal.}{9}{section*.21}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Implications for content moderation.}{9}{section*.22}\protected@file@percent }
 \bibdata{custom}
 \bibcite{alon2023detecting}{{1}{2023}{{Alon and Kamfonas}}{{}}}
 \bibcite{anthropic2025claude}{{2}{2025}{{Anthropic}}{{}}}
 \bibcite{bayani2023testing}{{3}{2023}{{Bayani}}{{}}}
 \bibcite{berezin2024read}{{4}{2024}{{Berezin et~al.}}{{Berezin, Farahbakhsh, and Crespi}}}
-\bibcite{chandraumakantham2024multimodal}{{5}{2024}{{Chandraumakantham et~al.}}{{Chandraumakantham, Gowtham, Zakariah, and Almazyad}}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Bootstrap distribution of mean recognition improvement for GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. Each distribution shows the resampled mean gain from text to image input, with 90\% confidence intervals marked. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{6}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:bootstrap}{{3}{6}{Bootstrap distribution of mean recognition improvement for GPT-4o, Claude-Sonnet-4, and Gemini-2.5-Flash. Each distribution shows the resampled mean gain from text to image input, with 90\% confidence intervals marked. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.16}{}}
-\bibcite{google2025gemini}{{6}{2025}{{Google}}{{}}}
-\bibcite{jia2024visual}{{7}{2024}{{Jia et~al.}}{{Jia, Yue, Huang, Qin, Liu, Lin, and You}}}
-\bibcite{jiang2024artprompt}{{8}{2024}{{Jiang et~al.}}{{Jiang, Xu, Niu, Xiang, Ramasubramanian, Li, and Poovendran}}}
-\bibcite{ogrady2008automatic}{{9}{2008}{{O'Grady and Rickard}}{{}}}
-\bibcite{openai2025chatgpt}{{10}{2025}{{OpenAI}}{{}}}
-\bibcite{wang2025text}{{11}{2025}{{Wang et~al.}}{{Wang, Hooi, Wang, Yang, Huang, and Cai}}}
-\bibcite{wu2024experimental}{{12}{2024}{{Wu et~al.}}{{Wu, Tang, Yang, Hao, Lai, and Liu}}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Example of Toxic ASCII Art}{7}{appendix.A}\protected@file@percent }
-\newlabel{app:a}{{A}{7}{Example of Toxic ASCII Art}{appendix.A}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Toxic multiline ASCII art sample. Content has been redacted for ethical presentation. \textbf  {[PLACEHOLDER: replace box with actual figure]}}}{7}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:toxic_multiline}{{4}{7}{Toxic multiline ASCII art sample. Content has been redacted for ethical presentation. \textbf {[PLACEHOLDER: replace box with actual figure]}}{figure.caption.20}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Toxic kaomoji sample. Characters form an offensive symbol. Content is shown as-is for research documentation purposes.}}{7}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:toxic_kaomoji}{{5}{7}{Toxic kaomoji sample. Characters form an offensive symbol. Content is shown as-is for research documentation purposes}{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B}Sample Data}{7}{appendix.B}\protected@file@percent }
-\newlabel{app:b}{{B}{7}{Sample Data}{appendix.B}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Test Result}{7}{appendix.C}\protected@file@percent }
-\newlabel{app:c}{{C}{7}{Test Result}{appendix.C}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D}Prompts}{7}{appendix.D}\protected@file@percent }
-\newlabel{app:d}{{D}{7}{Prompts}{appendix.D}{}}
-\@writefile{toc}{\contentsline {paragraph}{Prompt D1: Text-based input}{7}{section*.24}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Prompt D2: Image-based input}{7}{section*.25}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Sample entries from the dataset. The \textit  {Type} column indicates whether the entry is a kaomoji or multiline ASCII art. The \textit  {Offensive} column is a binary label (1 = offensive, 0 = benign). \textbf  {[PLACEHOLDER: fill in sample rows from dataset]}}}{8}{table.caption.22}\protected@file@percent }
-\newlabel{tab:sample_data}{{5}{8}{Sample entries from the dataset. The \textit {Type} column indicates whether the entry is a kaomoji or multiline ASCII art. The \textit {Offensive} column is a binary label (1 = offensive, 0 = benign). \textbf {[PLACEHOLDER: fill in sample rows from dataset]}}{table.caption.22}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Sample entries from \texttt  {test\_result.xlsx}. Coverage, Hallucination, and Improper Detection are binary scores (0 or 1). \textbf  {[PLACEHOLDER: fill in sample rows from test\_result.xlsx]}}}{8}{table.caption.23}\protected@file@percent }
-\newlabel{tab:test_result}{{6}{8}{Sample entries from \texttt {test\_result.xlsx}. Coverage, Hallucination, and Improper Detection are binary scores (0 or 1). \textbf {[PLACEHOLDER: fill in sample rows from test\_result.xlsx]}}{table.caption.23}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Codes}{8}{appendix.E}\protected@file@percent }
-\newlabel{app:e}{{E}{8}{Codes}{appendix.E}{}}
-\@writefile{toc}{\contentsline {paragraph}{Code E1: Bootstrapping}{8}{section*.26}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Code E2: Figure 3 Generation}{8}{section*.27}\protected@file@percent }
-\gdef \@abspage@last{8}
+\bibcite{bhatia2024globalrg}{{5}{2024}{{Bhatia et~al.}}{{Bhatia, Ravi, Chinchure, Hwang, and Shwartz}}}
+\bibcite{chandraumakantham2024multimodal}{{6}{2024}{{Chandraumakantham et~al.}}{{Chandraumakantham, Gowtham, Zakariah, and Almazyad}}}
+\bibcite{google2025gemini}{{7}{2025}{{Google}}{{}}}
+\bibcite{jia2025asvii_eval}{{8}{2025}{{Jia et~al.}}{{Jia, Yue, Huang, Qin, Liu, Lin, and You}}}
+\bibcite{jiang2024artprompt}{{9}{2024}{{Jiang et~al.}}{{Jiang, Xu, Niu, Xiang, Ramasubramanian, Li, and Poovendran}}}
+\bibcite{ogrady2008automatic}{{10}{2008}{{O'Grady and Rickard}}{{}}}
+\bibcite{openai2025chatgpt}{{11}{2025}{{OpenAI}}{{}}}
+\bibcite{wang2025text}{{12}{2025}{{Wang et~al.}}{{Wang, Hooi, Wang, Yang, Huang, and Cai}}}
+\bibcite{west2023generative}{{13}{2024}{{West et~al.}}{{West, Lu, Dziri, Brahman, Li, Hwang, Jiang, Fisher, Ravichander, Chandu, Newman, Koh, Ettinger, and Choi}}}
+\bibcite{wu2024experimental}{{14}{2024}{{Wu et~al.}}{{Wu, Tang, Yang, Hao, Lai, and Liu}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Example of Toxic ASCII Art}{10}{appendix.A}\protected@file@percent }
+\newlabel{app:a}{{A}{10}{Example of Toxic ASCII Art}{appendix.A}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Toxic multiline ASCII art sample.}}{10}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:toxic_multiline}{{9}{10}{Toxic multiline ASCII art sample}{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Prompts}{11}{appendix.B}\protected@file@percent }
+\newlabel{app:b}{{B}{11}{Prompts}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Sample Data}{11}{appendix.C}\protected@file@percent }
+\newlabel{app:c}{{C}{11}{Sample Data}{appendix.C}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Sample entries from the dataset. Token counts, timestamps, and other pipeline metadata are omitted for readability; the full dataset is available in the supplementary materials.}}{12}{table.caption.27}\protected@file@percent }
+\newlabel{tab:sample_data}{{2}{12}{Sample entries from the dataset. Token counts, timestamps, and other pipeline metadata are omitted for readability; the full dataset is available in the supplementary materials}{table.caption.27}{}}
+\gdef \@abspage@last{12}

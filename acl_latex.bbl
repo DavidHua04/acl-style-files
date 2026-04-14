@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 
 \bibitem[{Alon and Kamfonas(2023)}]{alon2023detecting}
@@ -28,6 +28,17 @@ Simon Berezin, Reza Farahbakhsh, and No{\"e}l Crespi. 2024.
   profanity}.
 \newblock \emph{Preprint}, arXiv:2409.18708.
 
+\bibitem[{Bhatia et~al.(2024)Bhatia, Ravi, Chinchure, Hwang, and
+  Shwartz}]{bhatia2024globalrg}
+Mehar Bhatia, Sahithya Ravi, Aditya Chinchure, EunJeong Hwang, and Vered
+  Shwartz. 2024.
+\newblock \href {https://doi.org/10.18653/v1/2024.emnlp-main.385} {From local
+  concepts to universals: Evaluating the multicultural understanding of
+  vision-language models}.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in
+  Natural Language Processing}, pages 6763--6782, Miami, Florida, USA.
+  Association for Computational Linguistics.
+
 \bibitem[{Chandraumakantham et~al.(2024)Chandraumakantham, Gowtham, Zakariah,
   and Almazyad}]{chandraumakantham2024multimodal}
 Oruganti Chandraumakantham, N.~Gowtham, Mohammed Zakariah, and Abdulaziz
@@ -41,12 +52,12 @@ Oruganti Chandraumakantham, N.~Gowtham, Mohammed Zakariah, and Abdulaziz
 \newblock \href {https://gemini.google.com/app} {Gemini (2.5 {Flash} version)
   [{Large} language model]}.
 
-\bibitem[{Jia et~al.(2024)Jia, Yue, Huang, Qin, Liu, Lin, and
-  You}]{jia2024visual}
+\bibitem[{Jia et~al.(2025)Jia, Yue, Huang, Qin, Liu, Lin, and
+  You}]{jia2025asvii_eval}
 Qi~Jia, Xiang Yue, Shanshan Huang, Zhen Qin, Yue Liu, Bill~Yuchen Lin, and Yang
-  You. 2024.
-\newblock \href {https://arxiv.org/abs/2410.01733} {Visual perception in text
-  strings}.
+  You. 2025.
+\newblock \href {https://arxiv.org/abs/2410.01733} {Asciieval: Benchmarking
+  models' visual perception in text strings via ascii art}.
 \newblock \emph{Preprint}, arXiv:2410.01733.
 
 \bibitem[{Jiang et~al.(2024)Jiang, Xu, Niu, Xiang, Ramasubramanian, Li, and
@@ -75,6 +86,18 @@ Zhiyuan Wang, Bryan Hooi, Yiwei Wang, Ming-Hsuan Yang, Zewei Huang, and Yuzhen
 \newblock \href {https://arxiv.org/abs/2504.01589} {Text speaks louder than
   vision: {ASCII} art reveals textual biases in vision-language models}.
 \newblock \emph{Preprint}, arXiv:2504.01589.
+
+\bibitem[{West et~al.(2024)West, Lu, Dziri, Brahman, Li, Hwang, Jiang, Fisher,
+  Ravichander, Chandu, Newman, Koh, Ettinger, and Choi}]{west2023generative}
+Peter West, Ximing Lu, Nouha Dziri, Faeze Brahman, Linjie Li, Jena Hwang, Liwei
+  Jiang, Jillian Fisher, Abhilasha Ravichander, Khyathi Chandu, Benjamin
+  Newman, Pang~Wei Koh, Allyson Ettinger, and Yejin Choi. 2024.
+\newblock \href
+  {https://proceedings.iclr.cc/paper_files/paper/2024/file/ce208d95d020b023cba9e64031db2584-Paper-Conference.pdf}
+  {The generative ai paradox: \textquotedblleft what it can create, it may not
+  understand\textquotedblright}.
+\newblock In \emph{International Conference on Learning Representations},
+  volume 2024, pages 47159--47187.
 
 \bibitem[{Wu et~al.(2024)Wu, Tang, Yang, Hao, Lai, and
   Liu}]{wu2024experimental}
